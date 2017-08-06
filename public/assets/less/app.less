@@ -1,0 +1,61 @@
+
+/*
+ * PHPUnit Generator Website styles
+ *
+ * (c) Paul Thébaud <paul.thebaud29@gmail.com>
+ */
+
+html {
+  font-family: 'PT Sans';
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+  height: 100%;
+  padding: 20px 0;
+  h4 {
+    margin: 40px 0;
+  }
+}
+
+nav, h1, h2, h3, h4, h5, h6, .btn, .btn-large {
+  font-family: 'Racing Sans One';
+}
+
+#loader {
+  position: absolute;
+  z-index: 50;
+  left: 0;
+  top: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: rgba(255, 255, 255, 0.5);
+  .loader-container {
+    z-index: 100;
+    width: 100%;
+  }
+}
+
+#main {
+  input[type="file"] {
+    display: none;
+  }
+}
+
+.CodeMirror {
+  border-radius: 4px;
+}
+
+// Switches color
+.switch label input[type=checkbox]:checked+.lever {
+  background-color: #2196F3;
+  &:after {
+    background-color: #21A7F3;
+  }
+}

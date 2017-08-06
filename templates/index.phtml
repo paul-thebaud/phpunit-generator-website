@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+
+    <title>PHPUnit Generator</title>
+
+    <link rel="icon" type="image/png" href="assets/img/favicon.png"/>
+
+    <!-- Materialize and app style  -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Racing+Sans+One">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans">
+    <link type="text/css" rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css"/>
+    <link type="text/css" rel="stylesheet" href="assets/css/app.css"/>
+
+    <!-- CodeMirror  -->
+    <link type="text/css" rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/codemirror.min.css">
+    <link type="text/css" rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/theme/monokai.min.css">
+    <link type="text/css" rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/addon/display/fullscreen.css">
+</head>
+
+<body>
+
+<?php require_once __DIR__ . '/header.phtml'; ?>
+
+<main class="valign-wrapper blue-grey-text text-darken-3">
+    <div class="container">
+        <section id="loader" class="valign-wrapper center-align" style="display:none;">
+            <div class="loader-container">
+                <div class="preloader-wrapper big active">
+                    <div class="spinner-layer spinner-blue-only">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="gap-patch">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <?php require_once __DIR__ . '/section/main-section.phtml'; ?>
+
+        <?php require_once __DIR__ . '/section/code-editor-section.phtml'; ?>
+
+        <?php require_once __DIR__ . '/section/tests-editor-section.phtml'; ?>
+
+        <?php require_once __DIR__ . '/section/modals-section.phtml'; ?>
+    </div>
+</main>
+
+<?php require_once __DIR__ . '/footer.phtml'; ?>
+
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/htmlmixed/htmlmixed.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/javascript/javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/xml/xml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/clike/clike.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/php/php.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/addon/display/fullscreen.js"></script>
+<script src="assets/js/app.js"></script>
+
+</body>
+
+</html>
