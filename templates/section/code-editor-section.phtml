@@ -4,7 +4,42 @@
     </h4>
     <form class="row">
         <div class="col s12">
-            <textarea id="code-textarea">Write your code here ...</textarea>
+            <textarea id="code-textarea"><?php $content =  <<<EOF
+<?php
+
+class Person
+{
+    protected \$name;
+    
+    public function __construct(string \$name)
+    {
+        \$this->setName(\$name);
+    }
+    
+    public function __toString()
+    {
+        return \$this->getName();
+    }
+    
+    public function setName(string \$name)
+    {
+        \$this->name = \$name;
+    }
+    
+    public function getName(): string
+    {
+        return \$this->name;
+    }
+    
+    public function doSomething()
+    {
+        echo \$this->__toString();
+    }
+}
+
+EOF;
+            echo htmlspecialchars($content);
+?></textarea>
         </div>
     </form>
     <button type="button" class="left btn waves-effect blue" onclick="goToSection('#main')">
