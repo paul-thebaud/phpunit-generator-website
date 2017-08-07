@@ -36,7 +36,7 @@ var PHPUnitGen = {
                     testsEditor.setValue(json['content']);
                     goToSection('#tests-editor');
                 } else {
-                    displayError(json['content']);
+                    errorToast(json['content']);
                 }
                 $('#loader').fadeToggle(500);
             },
@@ -58,9 +58,8 @@ var PHPUnitGen = {
         } catch (e) {
         }
         if (typeof config === 'undefined') {
-            config = {
-                auto: false
-            };
+            config = {};
+            $('#tap-target-documentation').tapTarget('open');
         }
         this.saveConfig(config);
     },
@@ -97,11 +96,11 @@ var PHPUnitGen = {
  * UI functions
  */
 
-function toast(message) {
+function infoToast(message) {
     Materialize.toast('<div class="right-align">' + message + '</span><br><button type="button" class="btn-flat toast-action dismiss-button orange-text">OK</button></div>', 3000);
 }
 
-function displayError(error) {
+function errorToast(error) {
     Materialize.toast('<div class="right-align"><b>An error occurred during parsing</b><br><span>' + error + '</span><br><button type="button" class="btn-flat toast-action dismiss-button orange-text">OK</button></div>', 10000);
 }
 
@@ -109,7 +108,10 @@ function goToSection(id) {
     var section = $(id);
     if (section.length > 0) {
         activeSection.slideUp(500);
-        previousSection = activeSection;
+        console.log(activeSection.attr('id'));
+        if (activeSection.attr('id') !== 'tests-editor') {
+            previousSection = activeSection;
+        }
         activeSection = section;
         activeSection.slideDown(500);
         setTimeout(function () {
@@ -162,10 +164,8 @@ $(document).ready(function () {
     $('button.actions').dropdown({constrainWidth: false});
 
     // Initialize modals
-    $('#modal-documentation').modal();
-    var modalConfig = $('#modal-config');
-    modalConfig.modal();
-    modalConfig.find('input').each(function () {
+    $('.modal').modal();
+    $('#modal-config').find('input').each(function () {
         var value = PHPUnitGen.getConfigElem($(this).attr('name'));
         if ($(this).attr('type') === 'checkbox' && value === 1) {
             $(this).prop('checked', true);
@@ -186,7 +186,7 @@ $(document).ready(function () {
     // Initialize clipboard.js
     new Clipboard('button.copy', {
         text: function() {
-            toast('Tests code copied to clipboard!');
+            infoToast('Tests code copied to clipboard!');
             return testsEditor.getValue();
         }
     });

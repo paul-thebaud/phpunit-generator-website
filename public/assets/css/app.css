@@ -43,17 +43,41 @@ h6,
   z-index: 100;
   width: 100%;
 }
+.tap-target {
+  background-color: rgba(255, 152, 0, 0.7);
+}
 #main input[type="file"] {
   display: none;
 }
 .CodeMirror {
   border-radius: 4px;
 }
+.settings .setting {
+  padding: 15px;
+}
+.settings .setting .row {
+  margin: 0;
+}
+.settings .setting .row .left {
+  min-height: 100% !important;
+}
+.settings .setting .row .left span {
+  font-weight: bold;
+}
+.settings .setting .row .right {
+  text-align: right;
+}
+.settings .setting .row .right .lever {
+  margin: 0;
+}
+.settings .setting .row .right input {
+  margin: 0;
+}
 .switch label input[type=checkbox]:checked + .lever {
-  background-color: #2196F3;
+  background-color: #90caf9;
 }
 .switch label input[type=checkbox]:checked + .lever:after {
-  background-color: #21A7F3;
+  background-color: #2196F3;
 }
 input[type=text]:focus {
   border-bottom-color: #2196F3 !important;

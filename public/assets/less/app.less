@@ -44,6 +44,10 @@ nav, h1, h2, h3, h4, h5, h6, .btn, .btn-large {
   }
 }
 
+.tap-target {
+  background-color: rgba(255, 152, 0, 0.7);
+}
+
 #main {
   input[type="file"] {
     display: none;
@@ -54,11 +58,35 @@ nav, h1, h2, h3, h4, h5, h6, .btn, .btn-large {
   border-radius: 4px;
 }
 
+.settings {
+  .setting {
+    padding: 15px;
+    .row {
+      margin: 0;
+      .left {
+        min-height: 100% !important;
+        span {
+          font-weight: bold;
+        }
+      }
+      .right {
+        text-align: right;
+        .lever {
+          margin: 0;
+        }
+        input {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
 // Switches color
 .switch label input[type=checkbox]:checked+.lever {
-  background-color: @blue;
+  background-color: #90caf9;
   &:after {
-    background-color: #21A7F3;
+    background-color: @blue;
   }
 }
 

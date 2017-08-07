@@ -57,6 +57,21 @@
         <?php require_once __DIR__ . '/section/tests-editor-section.phtml'; ?>
 
         <?php require_once __DIR__ . '/section/modals-section.phtml'; ?>
+
+        <div class="fixed-action-btn">
+            <a href="#modal-documentation" id="button-documentation"
+               class="modal-trigger btn-floating btn-large orange tooltipped"
+               data-position="left" data-tooltip="Documentation">
+                <i class="large material-icons left">info</i>
+            </a>
+        </div>
+
+        <div id="tap-target-documentation" class="tap-target" data-activates="button-documentation">
+            <div class="tap-target-content right-align white-text" style="margin-bottom: 10px">
+                <h5>Hey!</h5>
+                <p>It seems it is the first you go on this website, maybe read the documentation!</p>
+            </div>
+        </div>
     </div>
 </main>
 

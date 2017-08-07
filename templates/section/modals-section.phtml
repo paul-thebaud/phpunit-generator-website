@@ -2,27 +2,39 @@
     <div id="modal-config" class="modal">
         <div class="modal-content">
             <h4>Settings</h4>
-            <div class="row">
-                <div class="col s12 l6">
-                    <b>Automatic getters / setters tests</b>
-                </div>
-                <div class="col s12 l6 switch">
-                    <label>
-                        Off
-                        <input name="auto" type="checkbox">
-                        <span class="lever"></span>
-                        On
-                    </label>
+            <p>
+                Customize your settings here, they will be saved each times you change them.
+            </p>
+        </div>
+        <div class="settings">
+            <div class="divider"></div>
+            <div class="setting">
+                <div class="row valign-wrapper">
+                    <div class="col s12 l6 left">
+                        <span>Automatic getters / setters tests</span>
+                    </div>
+                    <div class="col s12 l6 right">
+                        <div class="switch">
+                            <label>
+                                <input name="auto" type="checkbox">
+                                <span class="lever"></span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col s12 l6">
-                    <b>Author</b>
-                </div>
-                <div class="col s12 l6">
-                    <input name="doc-author" type="text" placeholder="John Doe <john.doe@example.com>">
+            <div class="divider"></div>
+            <div class="setting">
+                <div class="row valign-wrapper">
+                    <div class="col s12 l6 left">
+                        <span>Author (PHPDoc)</span>
+                    </div>
+                    <div class="col s12 l6 right">
+                        <input name="doc-author" type="text" placeholder="John Doe <john.doe@example.com>">
+                    </div>
                 </div>
             </div>
+            <div class="divider"></div>
         </div>
         <div class="modal-footer">
             <button type="button" class="modal-action modal-close btn waves-effect waves-light blue">Close</button>
@@ -33,6 +45,26 @@
             <?= file_get_contents(__DIR__ . '/../documentation.html') ?>
         </div>
         <div class="modal-footer">
+            <button type="button" class="modal-action modal-close btn waves-effect waves-light blue">Close</button>
+        </div>
+    </div>
+    <div id="modal-legal" class="modal">
+        <div class="modal-content">
+            <?= file_get_contents(__DIR__ . '/../legal.html') ?>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="modal-action modal-close btn waves-effect waves-light blue">Close</button>
+        </div>
+    </div>
+    <div id="modal-clear-confirm" class="modal">
+        <div class="modal-content">
+            <h4>We need your confirmation!</h4>
+            <p>
+                Do you confirm you want to refresh the page and clear all forms?
+            </p>
+        </div>
+        <div class="modal-footer">
+            <a href="" class="btn waves-effect waves-light red">Confirm</a>
             <button type="button" class="modal-action modal-close btn waves-effect waves-light blue">Close</button>
         </div>
     </div>
