@@ -55,3 +55,7 @@ h6,
 .switch label input[type=checkbox]:checked + .lever:after {
   background-color: #21A7F3;
 }
+input[type=text]:focus {
+  border-bottom-color: #2196F3 !important;
+  box-shadow: 0 1px 0 0 #2196F3 !important;
+}

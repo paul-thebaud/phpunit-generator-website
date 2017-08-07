@@ -5,6 +5,8 @@
  * (c) Paul Thébaud <paul.thebaud29@gmail.com>
  */
 
+@blue: #2196F3;
+
 html {
   font-family: 'PT Sans';
 }
@@ -54,8 +56,14 @@ nav, h1, h2, h3, h4, h5, h6, .btn, .btn-large {
 
 // Switches color
 .switch label input[type=checkbox]:checked+.lever {
-  background-color: #2196F3;
+  background-color: @blue;
   &:after {
     background-color: #21A7F3;
   }
+}
+
+// Input text color
+input[type=text]:focus {
+  border-bottom-color: @blue !important;
+  box-shadow: 0 1px 0 0 @blue !important;
 }
