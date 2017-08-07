@@ -97,6 +97,10 @@ var PHPUnitGen = {
  * UI functions
  */
 
+function toast(message) {
+    Materialize.toast('<div class="right-align">' + message + '</span><br><button type="button" class="btn-flat toast-action dismiss-button orange-text">OK</button></div>', 3000);
+}
+
 function displayError(error) {
     Materialize.toast('<div class="right-align"><b>An error occurred during parsing</b><br><span>' + error + '</span><br><button type="button" class="btn-flat toast-action dismiss-button orange-text">OK</button></div>', 10000);
 }
@@ -178,6 +182,14 @@ $(document).ready(function () {
     codeEditor.setSize(null, 500);
     testsEditor = createPHPEditor('tests-textarea');
     testsEditor.setSize(null, 500);
+
+    // Initialize clipboard.js
+    new Clipboard('button.copy', {
+        text: function() {
+            toast('Tests code copied to clipboard!');
+            return testsEditor.getValue();
+        }
+    });
 
     // Initialize listeners
     $('input[name="file"]').on('change', function () {

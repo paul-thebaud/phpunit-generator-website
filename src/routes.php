@@ -48,7 +48,7 @@ function getOptions(Request $request) {
     $options = is_array($request->getParsedBodyParam('options')) ?
         $request->getParsedBodyParam('options') : [];
     foreach ($options as $key => $option) {
-        $options[$key] = $option == true ? true : $option;
+        $options[$key] = $option == "1" ? true : $option;
     }
     return $options;
 }

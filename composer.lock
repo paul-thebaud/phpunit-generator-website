@@ -212,16 +212,16 @@
         },
         {
             "name": "paulthebaud/phpunit-generator",
-            "version": "1.0.3",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paul-thebaud/phpunit-generator.git",
-                "reference": "f8d3bd32c14480a104c2fb7248dfa763eb430e73"
+                "reference": "26b178662f69e28baccbd1d1c74844a6711494fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paul-thebaud/phpunit-generator/zipball/f8d3bd32c14480a104c2fb7248dfa763eb430e73",
-                "reference": "f8d3bd32c14480a104c2fb7248dfa763eb430e73",
+                "url": "https://api.github.com/repos/paul-thebaud/phpunit-generator/zipball/26b178662f69e28baccbd1d1c74844a6711494fc",
+                "reference": "26b178662f69e28baccbd1d1c74844a6711494fc",
                 "shasum": ""
             },
             "require": {
@@ -263,7 +263,7 @@
                 "tests",
                 "unit"
             ],
-            "time": "2017-08-06 23:32:19"
+            "time": "2017-08-07 00:18:37"
         },
         {
             "name": "pimple/pimple",
