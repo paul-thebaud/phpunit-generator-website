@@ -96,6 +96,22 @@ var PHPUnitGen = {
  * UI functions
  */
 
+function toggleDarkTheme() {
+    var main = $('main');
+    var modalsDiv = $('.modal, .modal-footer');
+    if (main.hasClass('blue-grey')) {
+        main.removeClass('blue-grey darken-3 white-text')
+            .addClass('white blue-grey-text text-darken-3');
+        modalsDiv.removeClass('blue-grey darken-3 white-text')
+            .addClass('white blue-grey-text text-darken-3');
+    } else {
+        main.removeClass('white blue-grey-text text-darken-3')
+            .addClass('blue-grey darken-3 white-text');
+        modalsDiv.removeClass('white blue-grey-text text-darken-3')
+            .addClass('blue-grey darken-3 white-text');
+    }
+}
+
 function infoToast(message) {
     Materialize.toast('<div class="right-align">' + message + '</span><br><button type="button" class="btn-flat toast-action dismiss-button orange-text">OK</button></div>', 3000);
 }
@@ -154,6 +170,10 @@ $(document).ready(function () {
     // Initialize config
     PHPUnitGen.parseConfig();
 
+    if (PHPUnitGen.getConfigElem('dark-theme') === 1) {
+        toggleDarkTheme();
+    }
+
     // Initialize navbar
     $('.button-collapse').sideNav({
         closeOnClick: true,
@@ -165,6 +185,9 @@ $(document).ready(function () {
 
     // Initialize modals
     $('.modal').modal();
+    $('#dark-theme-switch').on('change', function () {
+        toggleDarkTheme();
+    });
     $('#modal-config').find('input').each(function () {
         var value = PHPUnitGen.getConfigElem($(this).attr('name'));
         if ($(this).attr('type') === 'checkbox' && value === 1) {
