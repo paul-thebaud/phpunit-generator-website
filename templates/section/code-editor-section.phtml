@@ -10,30 +10,44 @@
 class Person
 {
     protected \$name;
+    protected \$age = 0;
     
     public function __construct(string \$name)
     {
         \$this->setName(\$name);
     }
     
+    /**
+     * @PHPUnitGen\AssertEquals('I\'m A simple string and I\'m 0.')
+     */
     public function __toString()
     {
-        return \$this->getName();
+        return 'I\'m "' . \$this->name . '" and I\'m ' . \$this->age . '.';
     }
     
+    /**
+     * @PHPUnitGen\Set()
+     */
     public function setName(string \$name)
     {
         \$this->name = \$name;
     }
     
+    /**
+     * @PHPUnitGen\Get()
+     */
     public function getName(): string
     {
         return \$this->name;
     }
     
-    public function doSomething()
+    /**
+     * @PHPUnitGen\AssertNotNull()
+     * @PHPUnitGen\AssertEquals(1)
+     */
+    protected function incrementAge()
     {
-        echo \$this->__toString();
+        return (\$this->age += 1);
     }
 }
 

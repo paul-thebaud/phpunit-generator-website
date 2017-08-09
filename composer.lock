@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "be0050c0005e3a83a0024541b3346c2e",
-    "content-hash": "922dbdbbabed324756e174eadf6e87b8",
+    "hash": "97caf5433cfdc0f6ba8484ae7c3ec562",
+    "content-hash": "6e617c4281ae8195b44920a917336b5b",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -212,16 +212,16 @@
         },
         {
             "name": "paulthebaud/phpunit-generator",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paul-thebaud/phpunit-generator.git",
-                "reference": "26b178662f69e28baccbd1d1c74844a6711494fc"
+                "reference": "0d976202cac3aa00f0aa39b56884f351e0ae2069"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paul-thebaud/phpunit-generator/zipball/26b178662f69e28baccbd1d1c74844a6711494fc",
-                "reference": "26b178662f69e28baccbd1d1c74844a6711494fc",
+                "url": "https://api.github.com/repos/paul-thebaud/phpunit-generator/zipball/0d976202cac3aa00f0aa39b56884f351e0ae2069",
+                "reference": "0d976202cac3aa00f0aa39b56884f351e0ae2069",
                 "shasum": ""
             },
             "require": {
@@ -263,7 +263,7 @@
                 "tests",
                 "unit"
             ],
-            "time": "2017-08-07 00:18:37"
+            "time": "2017-08-09 10:27:10"
         },
         {
             "name": "pimple/pimple",

@@ -23,6 +23,6 @@
         "slim/slim": "^3.1",
         "slim/php-view": "^2.0",
         "monolog/monolog": "^1.17",
-        "paulthebaud/phpunit-generator": "^1.0.0"
+        "paulthebaud/phpunit-generator": "^1.1"
     }
 }

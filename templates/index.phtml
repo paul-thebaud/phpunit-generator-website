@@ -28,28 +28,28 @@
 
 <body>
 
+<section id="loader" class="valign-wrapper center-align" style="display: none;">
+    <div class="loader-container">
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <?php require_once __DIR__ . '/header.phtml'; ?>
 
 <main class="valign-wrapper blue-grey-text text-darken-3">
     <div class="container">
-        <section id="loader" class="valign-wrapper center-align" style="display:none;">
-            <div class="loader-container">
-                <div class="preloader-wrapper big active">
-                    <div class="spinner-layer spinner-blue-only">
-                        <div class="circle-clipper left">
-                            <div class="circle"></div>
-                        </div>
-                        <div class="gap-patch">
-                            <div class="circle"></div>
-                        </div>
-                        <div class="circle-clipper right">
-                            <div class="circle"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <?php require_once __DIR__ . '/section/main-section.phtml'; ?>
 
         <?php require_once __DIR__ . '/section/code-editor-section.phtml'; ?>
