@@ -20,9 +20,12 @@
     ],
     "require": {
         "php": "^7.0",
+    	"ext-intl": "*",
         "slim/slim": "^3.1",
         "slim/php-view": "^2.0",
         "monolog/monolog": "^1.17",
-        "paulthebaud/phpunit-generator": "^1.1"
+    	"zendframework/zend-i18n": "2.*",
+        "paulthebaud/phpunit-generator": "^1.1",
+        "zendframework/zend-view": "^2.9"
     }
 }
