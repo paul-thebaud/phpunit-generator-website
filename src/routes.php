@@ -8,8 +8,6 @@ use Slim\Http\Response;
 
 // Routes
 
-var_dump(new Zend\I18n\View\Helper\Plural());die;
-
 /*
  * The index route
  */
