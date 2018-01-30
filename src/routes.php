@@ -1,63 +1,53 @@
 <?php
 
-use PHPUnitGenerator\Config\Config;
-use PHPUnitGenerator\Exception\ExceptionInterface\ExceptionInterface;
-use PHPUnitGenerator\Generator\TestGenerator;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
 // Routes
 
-/*
- * The index route
+/**
+ * Get the index page content.
  */
 $app->get('/', function (Request $request, Response $response, $args) {
-    // Render index view
-    return $this->renderer->render($response, 'index.phtml', $args);
+    return $this->renderer->render($response, 'index.phtml');
 });
 
-/*
- * The render route
+/**
+ * Get the documentation html content.
+ */
+$app->get('/documentation', function (Request $request, Response $response, $args) {
+    return $this->renderer->render($response, 'section/documentation.phtml');
+});
+
+/**
+ * Give a code to parse and a configuration.
  */
 $app->post('/render', function (Request $request, Response $response, $args) {
-    if (! is_string($code = getCodeToParse($request))) {
+    return $response->withJson([
+        'code' => 422,
+        'content' => 'No PhpUnitGen service set for the moment'
+    ]);
+    /*
+    if (! is_string($code = $request->getParsedBodyParam('code'))) {
         return $response->withJson([
-            'status'  => false,
-            'content' => 'Missing the code to parse.'
+            'code' => 422,
+            'content' => 'Invalid code sent, code params must be a string'
         ]);
     }
     try {
-        $test = (new TestGenerator(new Config(getOptions($request))))
-            ->generate($code);
+        $config = new BaseConfig($request->getParsedBodyParam('config'));
+        $container = (new ContainerFactory())->invoke($config);
+        $testCode = $container->get(ExecutorInterface::class)->invoke($code);
 
-        // Return tests code
         return $response->withJson([
-            'status'  => true,
-            'content' => $test
+            'code' => 200,
+            'content' => $testCode
         ]);
-    } catch (ExceptionInterface $exception) {
-        // Return an error
+    } catch (Exception $exception) {
         return $response->withJson([
-            'status'  => false,
+            'code' => 422,
             'content' => $exception->getMessage()
         ]);
     }
+    */
 });
-
-function getOptions(Request $request) {
-    $options = is_array($request->getParsedBodyParam('options')) ?
-        $request->getParsedBodyParam('options') : [];
-    foreach ($options as $key => $option) {
-        $options[$key] = $option == "1" ? true : $option;
-    }
-    return $options;
-}
-
-function getCodeToParse(Request $request)
-{
-    $code = $request->getParsedBodyParam('code');
-    if (is_string($code)) {
-        return $code;
-    }
-    return null;
-}

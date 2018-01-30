@@ -1,0 +1,72 @@
+@charset "UTF-8"
+
+@import "materialize.scss"
+
+@import url('https://fonts.googleapis.com/css?family=Merriweather+Sans')
+@import url('https://fonts.googleapis.com/css?family=Londrina+Solid')
+
+/*
+ * PhpUnitGen website style.
+ *
+ * (c) Paul Thébaud <paul.thebaud29@gmail.com>
+ */
+
+// Global
+body
+  display: flex
+  min-height: 100vh
+  flex-direction: column
+  font-family: 'Merriweather Sans', sans-serif
+
+main
+  flex: 1 0 auto
+  height: 100%
+  padding: 20px 0
+
+@for $index from 1 through 6
+  h#{$index}
+    font-family: 'Londrina Solid', sans-serif
+
+.btn
+  font-family: 'Londrina Solid', sans-serif
+  font-size: 130%
+
+// Navigation
+nav
+  font-family: 'Londrina Solid', sans-serif
+  ul li a
+    font-size: 120%
+    text-transform: uppercase
+
+// Configuration
+#modal-configuration
+  .configuration-categories
+    li.configuration-category
+      span
+        display: block
+      span.configuration-category-title
+        padding: 5px 5px 5px 0
+        font-weight: bold
+      ul.configuration-category-settings
+        li
+          padding: 10px
+          .row
+            margin: 0
+            .col
+              margin-left: 0
+            &.annotation
+              padding: 5px 0
+  .modal-footer
+    button
+      margin: 5px
+
+// Documentation
+#tap-target-documentation
+  background-color: rgba(255, 152, 0, 0.9)
+  .tap-target-content
+    padding-bottom: 66px !important
+    font-size: 115%
+
+// Forms
+input[type="file"]
+  display: none
