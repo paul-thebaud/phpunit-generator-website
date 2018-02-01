@@ -1,0 +1,28 @@
+<?php
+
+/** Here is a simple on PhpUnitGen usage */
+class Person
+{
+    protected $name;
+
+    public function __construct(string $name)
+    {
+        $this->setName($name);
+    }
+
+    /**
+     * @PHPUnitGen\AssertEquals('A simple person.')
+     */
+    public function __toString()
+    {
+        return 'A simple person.';
+    }
+
+    /**
+     * @PHPUnitGen\Set()
+     */
+    public function setName(string $name)
+    {
+        $this->name = $name;
+    }
+}

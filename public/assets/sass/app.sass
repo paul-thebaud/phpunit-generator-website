@@ -22,6 +22,8 @@ main
   flex: 1 0 auto
   height: 100%
   padding: 20px 0
+  .had-container
+    min-width: 100%
 
 @for $index from 1 through 6
   h#{$index}
@@ -48,12 +50,19 @@ nav
         padding: 5px 5px 5px 0
         font-weight: bold
       ul.configuration-category-settings
-        li
+        li.configuration-setting
           padding: 10px
           .row
             margin: 0
             .col
               margin-left: 0
+              .input-field
+                margin: 0
+                .select-wrapper
+                  input.select-dropdown
+                    margin: 0
+                input[name="height"]
+                  margin-bottom: 0
             &.annotation
               padding: 5px 0
   .modal-footer
@@ -62,7 +71,8 @@ nav
 
 // Documentation
 #tap-target-documentation
-  background-color: rgba(255, 152, 0, 0.9)
+  opacity: 0.9
+  background-color: map_get($orange, 'base')
   .tap-target-content
     padding-bottom: 66px !important
     font-size: 115%
@@ -70,3 +80,49 @@ nav
 // Forms
 input[type="file"]
   display: none
+
+.blue-grey
+  .select-wrapper
+    .caret
+      color: #fff
+    .dropdown-content li
+      background-color: map_get($blue-grey, 'darken-3')
+      &:hover
+        background-color: map_get($blue-grey, 'darken-1')
+      &.selected
+        background-color: map_get($blue-grey, 'darken-2')
+      span
+        color: #fff
+
+.white
+  .select-wrapper
+    .caret
+      color: map_get($blue-grey, 'darken-3')
+    .dropdown-content li
+      background-color: #fff
+      &:hover
+        background-color: darken(#fff, 5%)
+      &.selected
+        background-color: darken(#fff, 10%)
+      span
+        color: map_get($blue-grey, 'darken-3')
+
+// Editors
+.CodeMirror
+  border-radius: 5px
+
+// Cookie law container
+#cookie-law-container
+  position: fixed
+  z-index: 99999
+  left: 30%
+  top: 20px
+  width: 40%
+  border-radius: 5px
+  background-color: $toast-color
+  opacity: 0.9
+  .cookie-law-container-sub
+    padding: 10px
+    .cookie-law-title
+      font-size: 135%
+      font-family: 'Londrina Solid', sans-serif

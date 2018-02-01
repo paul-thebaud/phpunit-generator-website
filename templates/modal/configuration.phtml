@@ -2,6 +2,7 @@
     <div class="modal-content">
         <h4 class="valign-wrapper"><i class="small material-icons left">settings</i>Settings</h4>
 
+        <p>The PhpUnitGen configuration is saved in your web browser local storage.</p>
         <ul class="configuration-categories">
 
             <li class="configuration-category">
@@ -9,17 +10,35 @@
                     Appearance
                 </span>
                 <ul class="configuration-category-settings">
-                    <li>
+                    <li class="configuration-setting">
                         <div class="row valign-wrapper">
-                            <div class="col s12 l6 left">
+                            <div class="col s6">
+                                <span>Editor height</span>
+                            </div>
+                            <div class="col s6">
+                                <div class="input-field">
+                                    <select name="height">
+                                        <option value="300px">300px</option>
+                                        <option value="500px">500px</option>
+                                        <option value="700px">700px</option>
+                                        <option value="1000px">1000px</option>
+                                        <option value="1500px">1500px</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="configuration-setting">
+                        <div class="row valign-wrapper">
+                            <div class="col s6">
                                 <span>Dark theme</span>
                             </div>
-                            <div class="col s12 l6 right">
-                                <div class="switch">
-                                    <label>
-                                        <input name="dark-theme" type="checkbox">
-                                        <span class="lever"></span>
-                                    </label>
+                            <div class="col s6">
+                                <div class="input-field">
+                                    <select name="theme">
+                                        <option value="light">Light theme</option>
+                                        <option value="dark">Dark theme</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -32,12 +51,12 @@
                     PhpUnitGen configuration
                 </span>
                 <ul class="configuration-category-settings">
-                    <li>
+                    <li class="configuration-setting">
                         <div class="row valign-wrapper">
-                            <div class="col s12 l6 left">
+                            <div class="col s6">
                                 <span>Automatic generation</span>
                             </div>
-                            <div class="col s12 l6 right">
+                            <div class="col s6">
                                 <div class="switch">
                                     <label>
                                         <input name="auto" type="checkbox">
@@ -47,12 +66,12 @@
                             </div>
                         </div>
                     </li>
-                    <li>
+                    <li class="configuration-setting">
                         <div class="row valign-wrapper">
-                            <div class="col s12 l6 left">
+                            <div class="col s6">
                                 <span>Interface parsing</span>
                             </div>
-                            <div class="col s12 l6 right">
+                            <div class="col s6">
                                 <div class="switch">
                                     <label>
                                         <input name="interface" type="checkbox">
@@ -70,14 +89,15 @@
                     Generated tests class phpdoc
                 </span>
                 <ul class="configuration-category-settings">
-                    <li>
+                    <li class="configuration-setting">
                         <div class="row valign-wrapper">
                             <div class="input-field col s4">
                                 <input placeholder="@author" id="annotation" name="annotation" type="text">
                                 <label for="annotation">Annotation tag</label>
                             </div>
                             <div class="input-field col s6">
-                                <input placeholder="John Doe <john.doe@example.com>" id="content" name="content" type="text">
+                                <input placeholder="John Doe <john.doe@example.com>" id="content" name="content"
+                                       type="text">
                                 <label for="content">Annotation content</label>
                             </div>
                             <div class="col s2">

@@ -7,32 +7,31 @@
 
 <?php require_once __DIR__ . '/partial/nav.phtml'; ?>
 
-<main class="valign-wrapper blue-grey-text text-darken-3">
-    <div class="container">
-        <div id="first-container-tab" class="container-tab center-align">
-            <h4>A simple tool to generate your unit tests skeleton!</h4>
+<main class="valign-wrapper">
 
-            <!-- File input -->
-            <label class="btn-large waves-effect waves-light orange">
-                <input name="file" type="file"/>
-                <i class="material-icons left">file_upload</i>Upload your file
-            </label>
-            <h5>OR</h5>
-            <!-- Code editor open -->
-            <button type="button" class="btn-large waves-effect waves-light orange" onclick="goToSection('#code-editor')">
-                <i class="material-icons left">mode_edit</i>Write your code
-            </button>
-        </div>
+    <div class="had-container center-align">
+
+        <?php require_once __DIR__ . '/section/tab-main.phtml'; ?>
+
+        <?php require_once __DIR__ . '/section/tab-code-editor.phtml'; ?>
+
+        <?php require_once __DIR__ . '/section/tab-tests-editor.phtml'; ?>
+
     </div>
+
+    <?php require_once __DIR__ . '/modal/documentation.phtml'; ?>
+
+    <?php require_once __DIR__ . '/modal/legal.phtml'; ?>
+
+    <?php require_once __DIR__ . '/modal/configuration.phtml'; ?>
+
+    <?php require_once __DIR__ . '/modal/confirm-reset.phtml'; ?>
+
+    <?php require_once __DIR__ . '/partial/floating-button.phtml'; ?>
+
+    <?php require_once __DIR__ . '/partial/cookie.phtml'; ?>
+
 </main>
-
-<?php require_once __DIR__ . '/modal/documentation.phtml'; ?>
-
-<?php require_once __DIR__ . '/modal/legal.phtml'; ?>
-
-<?php require_once __DIR__ . '/modal/configuration.phtml'; ?>
-
-<?php require_once __DIR__ . '/modal/confirm-reset.phtml'; ?>
 
 <?php require_once __DIR__ . '/partial/footer.phtml'; ?>
 
