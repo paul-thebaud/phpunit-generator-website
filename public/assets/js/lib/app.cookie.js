@@ -16,7 +16,13 @@ PhpUnitGen.CookieLaw = (function() {
       cookieLawContainer.find('#btn-accept-cookie').on('click', function() {
         localStorage.setItem(PHPUNITGEN_LS_COOKIE_USAGE, 'accepted');
         cookieLawContainer.slideUp(500);
+        $(document).find('footer').animate({
+          marginBottom: '0'
+        }, 500);
       });
+      $(document).find('footer').animate({
+        marginBottom: cookieLawContainer.innerHeight() + 'px'
+      }, 500);
       cookieLawContainer.slideDown(500);
     }
   };

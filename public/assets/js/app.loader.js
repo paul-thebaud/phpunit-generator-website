@@ -14,15 +14,17 @@ PhpUnitGen.AppLoader = (function() {
    */
   var scripts = [
     'assets/js/lib/app.cookie.js',
-    'assets/js/lib/app.theme.js',
-    'assets/js/lib/app.util.js',
     'assets/js/lib/app.toast.js',
+    'assets/js/lib/app.theme.js',
+    'assets/js/lib/app.spinner.js',
+    'assets/js/lib/app.util.js',
     'assets/js/lib/app.page.loader.js',
     'assets/js/lib/app.form.loader.js',
     'assets/js/lib/app.config.js',
     'assets/js/lib/app.form.listener.js',
     'assets/js/lib/app.request.js',
-    'assets/js/lib/app.tab.js'
+    'assets/js/lib/app.tab.js',
+    'assets/js/lib/app.editor.listener.js'
   ];
 
   var currentIndex = 0;
@@ -79,5 +81,6 @@ $(document).ready(function() {
     PhpUnitGen.PageLoader.initialize();
     PhpUnitGen.Config.initialize();
     PhpUnitGen.Tab.initialize();
+    PhpUnitGen.EditorListener.initialize();
   });
 });

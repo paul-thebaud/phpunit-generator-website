@@ -7,6 +7,8 @@ PhpUnitGen.PageLoader = (function() {
   var codeEditor;
   var testsEditor;
 
+  var codeEditorContent;
+
   /**
    * Initialize the module.
    */
@@ -15,8 +17,13 @@ PhpUnitGen.PageLoader = (function() {
     $('select').material_select();
     $('.modal').modal();
 
+    codeEditorContent = '<?php' +
+        $(document).find('#code-editor-content').text();
+
     codeEditor = self.createCodeMirror('code-editor-textarea');
     testsEditor = self.createCodeMirror('tests-editor-textarea');
+
+    self.resetEditors();
   };
 
   /**
@@ -47,25 +54,53 @@ PhpUnitGen.PageLoader = (function() {
     });
   };
 
+  /**
+   * Change editors height.
+   *
+   * @param {string} height The new height.
+   */
   self.changeEditorHeight = function(height) {
     codeEditor.setSize(null, height);
     testsEditor.setSize(null, height);
   };
 
+  /**
+   * Refresh editors.
+   */
   self.refreshEditors = function() {
     codeEditor.refresh();
     testsEditor.refresh();
   };
 
+  /**
+   * Clear editors content.
+   */
   self.resetEditors = function() {
-    codeEditor.setValue('');
+    codeEditor.setValue(codeEditorContent);
     testsEditor.setValue('');
   };
 
+  /**
+   * Get the editor code.
+   */
   self.getCode = function() {
     codeEditor.getValue();
   };
 
+  /**
+   * Set the code in code editor.
+   *
+   * @param {string} code The code to set.
+   */
+  self.setCode = function(code) {
+    codeEditor.setValue(code);
+  };
+
+  /**
+   * Set the tests code in editor.
+   *
+   * @param {string} code The code to set.
+   */
   self.setTests = function(code) {
     testsEditor.setValue(code);
   };

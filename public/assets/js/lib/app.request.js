@@ -18,6 +18,49 @@ PhpUnitGen.Request = (function() {
   /**
    * Get the documentation and add it if not already retrieved.
    */
+  self.invokePhpUnitGen = function(source) {
+    PhpUnitGen.Spinner.toggle();
+    $.ajax({
+      url: '/generate',
+      type: 'POST',
+      data: {
+        config: PhpUnitGen.Config.toJson(),
+        name: $(document).find('input[name="name"]').val(),
+        code: PhpUnitGen.PageLoader.getCode()
+      },
+      dataType: 'json',
+      success: function(json) {
+        if (json.code === 200) {
+          PhpUnitGen.PageLoader.setTests(json.content);
+          PhpUnitGen.Tab.slideTestsEditor(source);
+        } else {
+          var count = PhpUnitGen.Config.getCount() + 1;
+          if (count === 1) {
+            PhpUnitGen.Toast.unicorn();
+          } else if (count === 5) {
+            PhpUnitGen.Toast.rainbow();
+          }
+          PhpUnitGen.Config.setCount(count);
+          PhpUnitGen.Theme.countChange(count);
+          PhpUnitGen.Toast.error(json.content);
+          // If the source is a file
+          if (source === 'main') {
+            // Clean forms
+            $(document).find('input[name="name"]').val('');
+            PhpUnitGen.PageLoader.resetEditors();
+          }
+        }
+        PhpUnitGen.Spinner.toggle();
+      },
+      error: function(error) {
+        handleAjaxError(error);
+      }
+    });
+  };
+
+  /**
+   * Get the documentation and add it if not already retrieved.
+   */
   self.getDocumentation = function() {
     if (documentation) {
       return;

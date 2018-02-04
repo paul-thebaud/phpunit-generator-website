@@ -9,9 +9,10 @@ PhpUnitGen.Config = (function() {
   var self = {};
 
   /**
-   * @type {{theme: string, height: string, hasInterface: boolean, hasAuto: boolean, phpdoc: {}}}
+   * @type {{count: int, theme: string, height: string, hasInterface: boolean, hasAuto: boolean, phpdoc: {}}}
    */
   var config = {
+    count: 0,
     theme: null,
     height: null,
     hasInterface: null,
@@ -35,6 +36,8 @@ PhpUnitGen.Config = (function() {
     try {
       json = JSON.parse(localStorage.getItem(PHPUNITGEN_LS_CONFIG));
       // Build it
+      self.setCount(json.count);
+      PhpUnitGen.Theme.countChange(self.getCount());
       self.setTheme(json.theme);
       PhpUnitGen.FormLoader.setSelectValue('select[name="theme"]',
           self.getTheme());
@@ -61,17 +64,10 @@ PhpUnitGen.Config = (function() {
   };
 
   /**
-   * Update the configuration in local storage.
-   */
-  function changed() {
-    // Save it
-    localStorage.setItem(PHPUNITGEN_LS_CONFIG, JSON.stringify(config));
-  }
-
-  /**
    * Reset the configuration and the configuration input fields.
    */
   self.reset = function() {
+    config.count = 0;
     self.setTheme(PHPUNITGEN_LIGHT_THEME);
     PhpUnitGen.FormLoader.setSelectValue('select[name="theme"]',
         PHPUNITGEN_LIGHT_THEME);
@@ -87,6 +83,22 @@ PhpUnitGen.Config = (function() {
     PhpUnitGen.FormLoader.resetAnnotationInput();
   };
 
+  /**
+   * Get the configuration as a Json object.
+   * @return {{theme: string, height: string, hasInterface: boolean, hasAuto: boolean, phpdoc: {}}}
+   */
+  self.toJson = function() {
+    return config;
+  };
+
+  /**
+   * Update the configuration in local storage.
+   */
+  function changed() {
+    // Save it
+    localStorage.setItem(PHPUNITGEN_LS_CONFIG, JSON.stringify(config));
+  }
+
   /*
    *************************************************************
    *
@@ -100,6 +112,28 @@ PhpUnitGen.Config = (function() {
    */
   self.isNew = function() {
     return isNew;
+  };
+
+  /**
+   * Set the count property.
+   *
+   * @param {int} count The new value.
+   */
+  self.setCount = function(count) {
+    if (typeof(count) !== typeof(1)) {
+      throw 'Invalid count provided';
+    }
+    config.count = count;
+    changed();
+  };
+
+  /**
+   * Get the current count property.
+   *
+   * @return {int} The current count.
+   */
+  self.getCount = function() {
+    return config.count;
   };
 
   /**

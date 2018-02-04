@@ -1,4 +1,4 @@
-<?php
+
 
 /** Here is a simple on PhpUnitGen usage */
 class Person

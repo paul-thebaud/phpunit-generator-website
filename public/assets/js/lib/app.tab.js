@@ -20,18 +20,30 @@ PhpUnitGen.Tab = (function() {
    * @param button The button.
    */
   self.slideSourceToTarget = function(button) {
-    var direction = button.data('direction');
+    // If a tests generation is required
+    var target = button.data('target');
+    if (target === 'tests-editor') {
+      return;
+    }
+    slide(button.data('source'), target, button.data('direction'));
+  };
+
+  self.slideTestsEditor = function(source) {
+    slide(source, 'tests-editor', 'right');
+  };
+
+  function slide(source, target, direction) {
     var opposed = direction === 'right' ? 'left' : 'right';
     $(document).
-        find('#tab-' + button.data('source')).
+        find('#tab-' + source).
         hide('slide', {direction: opposed}, 250, function() {
           $(document).
-              find('#tab-' + button.data('target')).
+              find('#tab-' + target).
               show('slide', {direction: direction}, 250, function() {
                 PhpUnitGen.PageLoader.refreshEditors();
               });
         });
-  };
+  }
 
   return self;
 })();

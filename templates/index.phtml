@@ -5,35 +5,39 @@
 
 <body>
 
-<?php require_once __DIR__ . '/partial/nav.phtml'; ?>
+<div id="global">
 
-<main class="valign-wrapper">
+    <?php require_once __DIR__ . '/partial/nav.phtml'; ?>
 
-    <div class="had-container center-align">
+    <main class="valign-wrapper">
 
-        <?php require_once __DIR__ . '/section/tab-main.phtml'; ?>
+        <div class="had-container center-align">
 
-        <?php require_once __DIR__ . '/section/tab-code-editor.phtml'; ?>
+            <?php require_once __DIR__ . '/section/tab-main.phtml'; ?>
 
-        <?php require_once __DIR__ . '/section/tab-tests-editor.phtml'; ?>
+            <?php require_once __DIR__ . '/section/tab-code-editor.phtml'; ?>
 
-    </div>
+            <?php require_once __DIR__ . '/section/tab-tests-editor.phtml'; ?>
 
-    <?php require_once __DIR__ . '/modal/documentation.phtml'; ?>
+        </div>
 
-    <?php require_once __DIR__ . '/modal/legal.phtml'; ?>
+        <?php require_once __DIR__ . '/modal/documentation.phtml'; ?>
 
-    <?php require_once __DIR__ . '/modal/configuration.phtml'; ?>
+        <?php require_once __DIR__ . '/modal/legal.phtml'; ?>
 
-    <?php require_once __DIR__ . '/modal/confirm-reset.phtml'; ?>
+        <?php require_once __DIR__ . '/modal/configuration.phtml'; ?>
 
-    <?php require_once __DIR__ . '/partial/floating-button.phtml'; ?>
+        <?php require_once __DIR__ . '/modal/confirm-reset.phtml'; ?>
 
-    <?php require_once __DIR__ . '/partial/cookie.phtml'; ?>
+        <?php require_once __DIR__ . '/partial/floating-button.phtml'; ?>
 
-</main>
+    </main>
 
-<?php require_once __DIR__ . '/partial/footer.phtml'; ?>
+    <?php require_once __DIR__ . '/partial/spinner.phtml'; ?>
+
+    <?php require_once __DIR__ . '/partial/footer.phtml'; ?>
+
+</div>
 
 </body>
 

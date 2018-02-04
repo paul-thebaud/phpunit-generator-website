@@ -20,8 +20,20 @@ PhpUnitGen.Toast = (function() {
    * @param {string} message The error message.
    */
   self.error = function(message) {
-    Materialize.toast('<i class="material-icons left">error</i>' + message,
+    Materialize.toast('<i class="material-icons left">warning</i>' + message,
         4000);
+  };
+
+  self.unicorn = function() {
+    var message = '<i class="material-icons left">lock_open</i> You use PhpUnitGen for the first time!&nbsp;';
+    message += '<b>Unicorn theme unlocked!</b>';
+    Materialize.toast(message, 8000);
+  };
+
+  self.rainbow = function() {
+    var message = '<i class="material-icons left">lock_open</i> Five uses! Well done!!&nbsp;';
+    message += '<b>Rainbow theme unlocked!</b>';
+    Materialize.toast(message, 8000);
   };
 
   return self;

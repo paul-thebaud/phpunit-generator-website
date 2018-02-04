@@ -16,13 +16,14 @@
             </div>
 
             <div class="left-align">
-                <textarea id="code-editor-textarea" name="code-editor-textarea"><?=
+                <textarea id="code-editor-textarea" name="code-editor-textarea"></textarea>
+                <div id="code-editor-content" style="display: none"><?=
                     file_get_contents(__DIR__ . '/../examples/code.txt')
-                    ?></textarea>
+                    ?></div>
             </div>
         </div>
         <div class="col s1 l2">
-            <button type="button" class="btn-floating btn-large btn-tab orange tooltipped"
+            <button id="btn-generate" type="button" class="btn-floating btn-large btn-tab orange tooltipped"
                     data-position="left" data-duration="50" data-tooltip="Launch generation!"
                     data-source="code-editor" data-target="tests-editor" data-direction="right">
                 <i class="material-icons">play_arrow</i>

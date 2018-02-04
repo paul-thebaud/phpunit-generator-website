@@ -34,7 +34,7 @@ $app->get('/documentation', function (Request $request, Response $response, $arg
  *      name {string} [optional]: The php file name to parse.
  * }
  */
-$app->post('/render', function (Request $request, Response $response, $args) {
+$app->post('/generate', function (Request $request, Response $response, $args) {
     return $response->withJson([
         'code' => 422,
         'content' => 'No PhpUnitGen service set for the moment'
@@ -46,8 +46,8 @@ $app->post('/render', function (Request $request, Response $response, $args) {
             'content' => 'Invalid code sent, code parameter must be a string'
         ]);
     }
-    $name = $request->getParsedBodyParam('name', null);
-    if ($name !== null && ! is_string($name)) {
+    $name = $request->getParsedBodyParam('name', '');
+    if (! is_string($name)) {
         return $response->withJson([
             'code'    => 422,
             'content' => 'Invalid file name sent, name parameter must be a string'
@@ -56,8 +56,11 @@ $app->post('/render', function (Request $request, Response $response, $args) {
     try {
         $config    = new BaseConfig($request->getParsedBodyParam('config'));
         $container = (new ContainerFactory())->invoke($config);
-        $testCode  = $container->get(ExecutorInterface::class)->invoke($code);
-
+        if (strlen($name) > 0) {
+            $testCode  = $container->get(ExecutorInterface::class)->invoke($code, $name);
+        } else {
+            $testCode  = $container->get(ExecutorInterface::class)->invoke($code);
+        }
         return $response->withJson([
             'code'    => 200,
             'content' => $testCode

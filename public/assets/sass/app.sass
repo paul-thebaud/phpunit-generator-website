@@ -5,18 +5,15 @@
 @import url('https://fonts.googleapis.com/css?family=Merriweather+Sans')
 @import url('https://fonts.googleapis.com/css?family=Londrina+Solid')
 
-/*
- * PhpUnitGen website style.
- *
- * (c) Paul Thébaud <paul.thebaud29@gmail.com>
- */
-
 // Global
 body
-  display: flex
   min-height: 100vh
-  flex-direction: column
   font-family: 'Merriweather Sans', sans-serif
+
+#global
+  display: flex
+  flex-direction: column
+  min-height: 100vh
 
 main
   flex: 1 0 auto
@@ -44,8 +41,6 @@ nav
 #modal-configuration
   .configuration-categories
     li.configuration-category
-      span
-        display: block
       span.configuration-category-title
         padding: 5px 5px 5px 0
         font-weight: bold
@@ -72,7 +67,7 @@ nav
 // Documentation
 #tap-target-documentation
   opacity: 0.9
-  background-color: map_get($orange, 'base')
+  background-color: color('orange', 'base')
   .tap-target-content
     padding-bottom: 66px !important
     font-size: 115%
@@ -81,23 +76,27 @@ nav
 input[type="file"]
   display: none
 
-.blue-grey
+.grey
+  img.circle
+    border: 1px solid #fff
   .select-wrapper
     .caret
       color: #fff
     .dropdown-content li
-      background-color: map_get($blue-grey, 'darken-3')
+      background-color: color('grey', 'darken-4')
       &:hover
-        background-color: map_get($blue-grey, 'darken-1')
+        background-color: lighten(color('grey', 'darken-2'), 5%)
       &.selected
-        background-color: map_get($blue-grey, 'darken-2')
+        background-color: lighten(color('grey', 'darken-3'), 10%)
       span
         color: #fff
 
 .white
+  img.circle
+    border: 1px solid color('grey', 'darken-4')
   .select-wrapper
     .caret
-      color: map_get($blue-grey, 'darken-3')
+      color: color('grey', 'darken-4')
     .dropdown-content li
       background-color: #fff
       &:hover
@@ -105,24 +104,47 @@ input[type="file"]
       &.selected
         background-color: darken(#fff, 10%)
       span
-        color: map_get($blue-grey, 'darken-3')
+        color: color('grey', 'darken-4')
+
+// Spinner
+#spinner-container
+  position: absolute
+  z-index: 99999
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  height: 100%
+  width: 100%
+  background-color: rgba(0, 0, 0, 0.5)
+  .preloader-wrapper
+    position: absolute
+    z-index: 99999
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    margin: auto
+    height: 100px
+    width: 100px
+    .circle
+      border-width: 7px !important
+
 
 // Editors
 .CodeMirror
   border-radius: 5px
 
-// Cookie law container
+// Cookie
 #cookie-law-container
   position: fixed
-  z-index: 99999
-  left: 30%
-  top: 20px
-  width: 40%
-  border-radius: 5px
-  background-color: $toast-color
-  opacity: 0.9
-  .cookie-law-container-sub
+  z-index: 950
+  left: 0
+  bottom: 0
+  width: 100%
+  .row
     padding: 10px
-    .cookie-law-title
-      font-size: 135%
-      font-family: 'Londrina Solid', sans-serif
+    width: 100%
+    margin-bottom: 0
+
+@import "themes.sass"

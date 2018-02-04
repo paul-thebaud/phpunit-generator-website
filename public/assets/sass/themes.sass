@@ -1,0 +1,36 @@
+@mixin keyframes($name)
+  @-webkit-keyframes #{$name}
+    @content
+  @-moz-keyframes #{$name}
+    @content
+  @-ms-keyframes #{$name}
+    @content
+  @keyframes #{$name}
+    @content
+
+.rainbow
+  .btn, .btn-floating, nav, footer
+    background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3)
+    background-size: 500% 500%
+    -webkit-animation: rainbow 12s linear infinite
+    -z-animation: rainbow 12s linear infinite
+    -o-animation: rainbow 12s linear infinite
+    animation: rainbow 12s linear infinite
+    text-shadow: -1px 0 color('grey', 'darken-4'), 0 1px color('grey', 'darken-4'), 1px 0 color('grey', 'darken-4'), 0 -1px color('grey', 'darken-4')
+    &.btn, &.btn-floating
+      border: 1px solid color('grey', 'darken-4')
+
+.unicorn
+  .btn, .btn-floating, nav, footer
+    background-color: color('pink', 'base') !important
+    text-shadow: -1px 0 color('grey', 'darken-4'), 0 1px color('grey', 'darken-4'), 1px 0 color('grey', 'darken-4'), 0 -1px color('grey', 'darken-4')
+    &.btn, &.btn-floating
+      border: 1px solid color('grey', 'darken-4')
+
+@include keyframes(rainbow)
+  0%
+    background-position: 0 82%
+  50%
+    background-position: 100% 19%
+  100%
+    background-position: 0 82%
