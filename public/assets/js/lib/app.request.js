@@ -41,7 +41,6 @@ PhpUnitGen.Request = (function() {
             PhpUnitGen.Toast.rainbow();
           }
           PhpUnitGen.Config.setCount(count);
-          PhpUnitGen.Theme.countChange(count);
           PhpUnitGen.Toast.error(json.content);
           // If the source is a file
           if (source === 'main') {

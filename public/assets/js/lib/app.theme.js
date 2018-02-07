@@ -81,6 +81,15 @@ PhpUnitGen.Theme = (function() {
     });
   };
 
+  self.initializeCount = function(count) {
+    if (count >= 1) {
+      self.countChange(1);
+    }
+    if (count >= 5) {
+      self.countChange(5);
+    }
+  };
+
   self.countChange = function(count) {
     // Remove all hidden theme if count is 0
     if (count === 0) {
@@ -88,11 +97,11 @@ PhpUnitGen.Theme = (function() {
       self.removeHiddenTheme('rainbow');
       return;
     }
-    if (count >= 1) {
+    if (count === 1) {
       // Add unicorn theme
       self.addHiddenTheme('unicorn', 'Unicorn theme', 'unicorn.png');
     }
-    if (count >= 5) {
+    if (count === 5) {
       // Add rainbow theme
       self.addHiddenTheme('rainbow', 'Rainbow theme', 'rainbow.png');
     }

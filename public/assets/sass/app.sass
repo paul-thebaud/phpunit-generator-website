@@ -78,10 +78,10 @@ input[type="file"]
 
 .grey
   img.circle
-    border: 1px solid #fff
+    border: 1px solid color('grey', 'base')
   .select-wrapper
     .caret
-      color: #fff
+      color: color('grey', 'base')
     .dropdown-content li
       background-color: color('grey', 'darken-4')
       &:hover
@@ -93,10 +93,10 @@ input[type="file"]
 
 .white
   img.circle
-    border: 1px solid color('grey', 'darken-4')
+    border: 1px solid color('grey', 'base')
   .select-wrapper
     .caret
-      color: color('grey', 'darken-4')
+      color: color('grey', 'base')
     .dropdown-content li
       background-color: #fff
       &:hover
@@ -132,8 +132,17 @@ input[type="file"]
 
 
 // Editors
+.white
+  .CodeMirror
+    border: 1px solid color('grey', 'base')
+.grey
+  .CodeMirror
+    border: 1px solid color('grey', 'base')
 .CodeMirror
-  border-radius: 5px
+  border-radius: 4px
+  background-color: color('grey', 'darken-4') !important
+  .CodeMirror-gutters
+    background-color: color('grey', 'darken-4') !important
 
 // Cookie
 #cookie-law-container

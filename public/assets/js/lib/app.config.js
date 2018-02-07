@@ -36,8 +36,8 @@ PhpUnitGen.Config = (function() {
     try {
       json = JSON.parse(localStorage.getItem(PHPUNITGEN_LS_CONFIG));
       // Build it
-      self.setCount(json.count);
-      PhpUnitGen.Theme.countChange(self.getCount());
+      config.count = json.count;
+      PhpUnitGen.Theme.initializeCount(self.getCount());
       self.setTheme(json.theme);
       PhpUnitGen.FormLoader.setSelectValue('select[name="theme"]',
           self.getTheme());
@@ -67,7 +67,7 @@ PhpUnitGen.Config = (function() {
    * Reset the configuration and the configuration input fields.
    */
   self.reset = function() {
-    config.count = 0;
+    self.setCount(0);
     self.setTheme(PHPUNITGEN_LIGHT_THEME);
     PhpUnitGen.FormLoader.setSelectValue('select[name="theme"]',
         PHPUNITGEN_LIGHT_THEME);
@@ -124,6 +124,7 @@ PhpUnitGen.Config = (function() {
       throw 'Invalid count provided';
     }
     config.count = count;
+    PhpUnitGen.Theme.countChange(count);
     changed();
   };
 
