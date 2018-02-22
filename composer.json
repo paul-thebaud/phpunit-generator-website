@@ -2,7 +2,6 @@
     "name": "paulthebaud/phpunit-generator-website",
     "description": "A PHP application to provide online usage of PHPUnit Generator package",
     "homepage": "https://github.com/paul-thebaud/phpunit-generator-website",
-    "version": "2.0.0",
     "license": "MIT",
     "authors": [
         {
@@ -22,6 +21,7 @@
         "php": "^7.1",
         "slim/slim": "^3.1",
         "slim/php-view": "^2.0",
-        "monolog/monolog": "^1.17"
+        "monolog/monolog": "^1.17",
+        "erusev/parsedown": "^1.6"
     }
 }

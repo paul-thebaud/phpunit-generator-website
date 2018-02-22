@@ -1,6 +1,4 @@
-const PHPUNITGEN_LIGHT_THEME = 'light';
-const PHPUNITGEN_DARK_THEME = 'dark';
-const PHPUNITGEN_RAINBOW_THEME = 'rainbow';
+const PHPUNITGEN_BASE_THEME = 'light';
 
 const PHPUNITGEN_THEMES = {
   'light': {
@@ -81,6 +79,11 @@ PhpUnitGen.Theme = (function() {
     });
   };
 
+  /**
+   * Initialize the generated tests count.
+   *
+   * @param {int} count The base count.
+   */
   self.initializeCount = function(count) {
     if (count >= 1) {
       self.countChange(1);
@@ -90,6 +93,11 @@ PhpUnitGen.Theme = (function() {
     }
   };
 
+  /**
+   * Change the theme count and add / remove theme if necessary.
+   *
+   * @param {int} count The new count.
+   */
   self.countChange = function(count) {
     // Remove all hidden theme if count is 0
     if (count === 0) {
@@ -107,6 +115,12 @@ PhpUnitGen.Theme = (function() {
     }
   };
 
+  /**
+   * Add a new theme to the available themes.
+   * @param {string} id The theme identifier.
+   * @param {string} name The theme name.
+   * @param {string} image The theme icon.
+   */
   self.addHiddenTheme = function(id, name, image) {
     var option = $('<option>', {
       value: id,

@@ -33,7 +33,8 @@ PhpUnitGen.Request = (function() {
         if (json.code === 200) {
           PhpUnitGen.PageLoader.setTests(json.content);
           PhpUnitGen.Tab.slideTestsEditor(source);
-        } else {
+
+          // Update theme if necessary
           var count = PhpUnitGen.Config.getCount() + 1;
           if (count === 1) {
             PhpUnitGen.Toast.unicorn();
@@ -41,6 +42,7 @@ PhpUnitGen.Request = (function() {
             PhpUnitGen.Toast.rainbow();
           }
           PhpUnitGen.Config.setCount(count);
+        } else {
           PhpUnitGen.Toast.error(json.content);
           // If the source is a file
           if (source === 'main') {
@@ -70,6 +72,7 @@ PhpUnitGen.Request = (function() {
       dataType: 'html',
       success: function(html) {
         $(document).find('#modal-documentation .content').html(html);
+        Prism.highlightAll();
       },
       error: function(error) {
         handleAjaxError(error);

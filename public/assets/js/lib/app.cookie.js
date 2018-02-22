@@ -12,6 +12,7 @@ PhpUnitGen.CookieLaw = (function() {
   self.initialize = function() {
     // If cookies are not accepted
     if (localStorage.getItem(PHPUNITGEN_LS_COOKIE_USAGE) !== 'accepted') {
+      // Show the cookie advertisement container
       var cookieLawContainer = $(document).find('#cookie-law-container');
       cookieLawContainer.find('#btn-accept-cookie').on('click', function() {
         localStorage.setItem(PHPUNITGEN_LS_COOKIE_USAGE, 'accepted');

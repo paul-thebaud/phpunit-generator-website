@@ -68,9 +68,9 @@ PhpUnitGen.Config = (function() {
    */
   self.reset = function() {
     self.setCount(0);
-    self.setTheme(PHPUNITGEN_LIGHT_THEME);
+    self.setTheme(PHPUNITGEN_BASE_THEME);
     PhpUnitGen.FormLoader.setSelectValue('select[name="theme"]',
-        PHPUNITGEN_LIGHT_THEME);
+        PHPUNITGEN_BASE_THEME);
     self.setHeight('300px');
     PhpUnitGen.FormLoader.setSelectValue('select[name=height]', '300px');
     config.hasInterface = false;

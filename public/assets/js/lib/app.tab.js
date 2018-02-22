@@ -17,7 +17,7 @@ PhpUnitGen.Tab = (function() {
   /**
    * Slide tabs from a button with data (source, target and direction).
    *
-   * @param button The button.
+   * @param button The button (jQuery button element).
    */
   self.slideSourceToTarget = function(button) {
     // If a tests generation is required
@@ -28,10 +28,22 @@ PhpUnitGen.Tab = (function() {
     slide(button.data('source'), target, button.data('direction'));
   };
 
+  /**
+   * Slide to the tests editor from a specified source.
+   *
+   * @param {string} source The source to slide from.
+   */
   self.slideTestsEditor = function(source) {
     slide(source, 'tests-editor', 'right');
   };
 
+  /**
+   * Slide from a source to a target.
+   *
+   * @param {string} source The source.
+   * @param {string} target The target.
+   * @param {string} direction The slide animation direction.
+   */
   function slide(source, target, direction) {
     var opposed = direction === 'right' ? 'left' : 'right';
     $(document).
