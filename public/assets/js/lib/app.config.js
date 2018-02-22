@@ -9,13 +9,14 @@ PhpUnitGen.Config = (function() {
   var self = {};
 
   /**
-   * @type {{count: int, theme: string, height: string, hasInterface: boolean, hasAuto: boolean, phpdoc: {}}}
+   * @type {{count: int, theme: string, height: string, hasInterface: boolean, hasPrivate: boolean, hasAuto: boolean, phpdoc: {}}}
    */
   var config = {
     count: 0,
     theme: null,
     height: null,
     hasInterface: null,
+    hasPrivate: null,
     hasAuto: null,
     phpdoc: {}
   };
@@ -44,6 +45,9 @@ PhpUnitGen.Config = (function() {
       self.setHeight(json.height);
       PhpUnitGen.FormLoader.setSelectValue('select[name="height"]',
           self.getHeight());
+      self.setPrivate(json.hasPrivate);
+      PhpUnitGen.FormLoader.setSwitchValue('input[name="private"]',
+          self.getPrivate());
       self.setInterface(json.hasInterface);
       PhpUnitGen.FormLoader.setSwitchValue('input[name="interface"]',
           self.getInterface());
@@ -73,6 +77,8 @@ PhpUnitGen.Config = (function() {
         PHPUNITGEN_BASE_THEME);
     self.setHeight('300px');
     PhpUnitGen.FormLoader.setSelectValue('select[name=height]', '300px');
+    config.hasPrivate = true;
+    PhpUnitGen.FormLoader.setSwitchValue('input[name="private"]', true);
     config.hasInterface = false;
     PhpUnitGen.FormLoader.setSwitchValue('input[name="interface"]', false);
     config.hasAuto = false;
@@ -182,6 +188,28 @@ PhpUnitGen.Config = (function() {
    */
   self.getHeight = function() {
     return config.height;
+  };
+
+  /**
+   * Set the hasPrivate property.
+   *
+   * @param {boolean} hasPrivate The new value.
+   */
+  self.setPrivate = function(hasPrivate) {
+    if (typeof(hasPrivate) !== typeof(true)) {
+      throw 'Invalid interface value provided';
+    }
+    config.hasPrivate = hasPrivate;
+    changed();
+  };
+
+  /**
+   * Get the current hasPrivate property.
+   *
+   * @return {boolean} The current hasPrivate.
+   */
+  self.getPrivate = function() {
+    return config.hasPrivate;
   };
 
   /**

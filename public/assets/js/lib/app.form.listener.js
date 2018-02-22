@@ -22,6 +22,9 @@ PhpUnitGen.FormListener = (function() {
     configFormOnSwitchChange('input[name="auto"]', function(value) {
       PhpUnitGen.Config.setAuto(value);
     });
+    configFormOnSwitchChange('input[name="private"]', function(value) {
+      PhpUnitGen.Config.setPrivate(value);
+    });
     configFormOnSwitchChange('input[name="interface"]', function(value) {
       PhpUnitGen.Config.setInterface(value);
     });
