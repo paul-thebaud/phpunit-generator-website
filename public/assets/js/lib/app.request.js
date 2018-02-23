@@ -12,7 +12,7 @@ PhpUnitGen.Request = (function() {
    */
   function handleAjaxError(error) {
     console.error(error);
-    alert(error.message);
+    alert('Server responds with an error. Please report the issue on the github page.');
   }
 
   /**
@@ -54,6 +54,7 @@ PhpUnitGen.Request = (function() {
         PhpUnitGen.Spinner.toggle();
       },
       error: function(error) {
+        PhpUnitGen.Spinner.toggle();
         handleAjaxError(error);
       }
     });

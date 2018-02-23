@@ -1,6 +1,8 @@
 
 
-/** Here is a simple on PhpUnitGen usage */
+/**
+ * @PhpUnitGen\construct(["'John'"])
+ */
 class Person
 {
     protected $name;
@@ -11,7 +13,7 @@ class Person
     }
 
     /**
-     * @PHPUnitGen\AssertEquals('A simple person.')
+     * @PhpUnitGen\assertEquals("'John'")
      */
     public function __toString()
     {
@@ -19,7 +21,7 @@ class Person
     }
 
     /**
-     * @PHPUnitGen\Set()
+     * @PhpUnitGen\Set()
      */
     public function setName(string $name)
     {

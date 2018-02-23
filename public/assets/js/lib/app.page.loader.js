@@ -84,7 +84,7 @@ PhpUnitGen.PageLoader = (function() {
    * Get the editor code.
    */
   self.getCode = function() {
-    codeEditor.getValue();
+    return codeEditor.getValue();
   };
 
   /**
@@ -94,6 +94,13 @@ PhpUnitGen.PageLoader = (function() {
    */
   self.setCode = function(code) {
     codeEditor.setValue(code);
+  };
+
+  /**
+   * Get the tests editor code.
+   */
+  self.getTests = function() {
+    return testsEditor.getValue();
   };
 
   /**

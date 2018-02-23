@@ -91,10 +91,15 @@ PhpUnitGen.Config = (function() {
 
   /**
    * Get the configuration as a Json object.
-   * @return {{theme: string, height: string, hasInterface: boolean, hasAuto: boolean, phpdoc: {}}}
+   * @return {{hasPrivate: boolean, hasInterface: boolean, hasAuto: boolean, phpdoc: {}}}
    */
   self.toJson = function() {
-    return config;
+    return {
+      private: config.hasPrivate,
+      interface: config.hasInterface,
+      auto: config.hasAuto,
+      phpdoc: config.phpdoc
+    };
   };
 
   /**

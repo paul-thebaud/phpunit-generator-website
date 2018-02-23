@@ -1,75 +1,23 @@
 <?php
 
+use PhpUnitGen\Website\Controller\GenerateController;
 use Slim\Http\Request;
 use Slim\Http\Response;
+use Slim\Views\PhpRenderer;
 
 // Routes
 
-/**
- * Get the index page content.
- *
- * Route: /
- * Parameters: {}
- */
-$app->get('/', function (Request $request, Response $response, $args) {
-    return $this->renderer->render($response, 'index.phtml');
+// Index route
+$app->get('/', function (Request $request, Response $response) {
+    return $this->get(PhpRenderer::class)->render($response, 'index.phtml');
 });
 
-/**
- * Get the documentation html content.
- *
- * Route: /documentation
- * Parameters: {}
- */
-$app->get('/documentation', function (Request $request, Response $response, $args) {
-    return $this->renderer->render($response, 'section/documentation.phtml');
+// Documentation content route
+$app->get('/documentation', function (Request $request, Response $response) {
+    return $this->get(PhpRenderer::class)->render($response, 'section/documentation.phtml');
 });
 
-/**
- * Give a code to parse and a configuration.
- *
- * Route: /documentation
- * Parameters: {
- *      code {string}: The code to parse
- *      name {string} [optional]: The php file name to parse.
- * }
- */
-$app->post('/generate', function (Request $request, Response $response, $args) {
-    return $response->withJson([
-        'code' => 422,
-        'content' => 'No PhpUnitGen service set for the moment'
-    ]);
-/*
-    if (! is_string($code = $request->getParsedBodyParam('code'))) {
-        return $response->withJson([
-            'code'    => 422,
-            'content' => 'Invalid code sent, code parameter must be a string'
-        ]);
-    }
-    $name = $request->getParsedBodyParam('name', '');
-    if (! is_string($name)) {
-        return $response->withJson([
-            'code'    => 422,
-            'content' => 'Invalid file name sent, name parameter must be a string'
-        ]);
-    }
-    try {
-        $config    = new BaseConfig($request->getParsedBodyParam('config'));
-        $container = (new ContainerFactory())->invoke($config);
-        if (strlen($name) > 0) {
-            $testCode  = $container->get(ExecutorInterface::class)->invoke($code, $name);
-        } else {
-            $testCode  = $container->get(ExecutorInterface::class)->invoke($code);
-        }
-        return $response->withJson([
-            'code'    => 200,
-            'content' => $testCode
-        ]);
-    } catch (Exception $exception) {
-        return $response->withJson([
-            'code'    => 422,
-            'content' => $exception->getMessage()
-        ]);
-    }
-*/
+// Tests skeletons generation
+$app->post('/generate', function (Request $request, Response $response) {
+    return $this->get(GenerateController::class)->generateAction($request, $response);
 });
