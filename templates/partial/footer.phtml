@@ -1,0 +1,64 @@
+<footer class="page-footer blue">
+
+    <div class="container white-text">
+        <div class="row">
+            <div class="col l8 s12">
+                <h5>About</h5>
+                <p>
+                    PhpUnitGen is a simple tool to generate your unit tests skeleton for PhpUnit 7.
+                    <br>
+                    It only needs the file you want to generate tests for, because it uses PHP parsing instead of
+                    reflections.
+                    <br>
+                    It does not save your file, it just read it one times to parse it.
+                </p>
+                <a href="https://github.com/paul-thebaud/phpunit-generator/stargazers" class="white-text"
+                    style="font-size: 110%; font-weight: bold; text-decoration: underline">
+                    If you like it, stars it!
+                </a>
+            </div>
+            <div class="col l4 s12 right-align">
+                <h5>Links</h5>
+                <ul>
+                    <li>
+                        <a class="white-text" href="https://github.com/paul-thebaud/phpunit-generator-website"
+                           target="_blank">
+                            <b>Website source</b>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="https://github.com/paul-thebaud/phpunit-generator"
+                           target="_blank">
+                            <b>Package source</b>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="https://github.com/paul-thebaud/phpunit-generator/issues"
+                           target="_blank">
+                            <b>Report an issue</b>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-copyright">
+        <div class="container">
+            <div class="row valign-wrapper" style="margin: 0">
+                <div class="col s6">
+                    Copyright &copy; <?= date('Y') ?>
+                    <a class="white-text" href="https://github.com/paul-thebaud" target="_blank"><b>Paul Thébaud</b></a>.
+                    (PhpUnitGen version <?= \PhpUnitGen\Console\Application::VERSION ?>).
+                </div>
+                <div class="col s6 right-align">
+                    <a href="#modal-legal" class="white-text modal-trigger"><b>Legal and terms of use</b></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<?php require_once __DIR__ . '/cookie.phtml'; ?>
+
+<?php include 'scripts.phtml'; ?>

@@ -1,3 +1,3 @@
-# phpunit-generator-website
+# PhpUnitGen web implementation
 
-A simple web application to use [phpunit-generator package](https://github.com/paul-thebaud/phpunit-generator).
+A web application to use the [phpunit-generator package](https://github.com/paul-thebaud/phpunit-generator).

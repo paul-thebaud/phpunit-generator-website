@@ -1,0 +1,30 @@
+
+
+/**
+ * @PhpUnitGen\construct(["'John'"])
+ */
+class Person
+{
+    protected $name;
+
+    public function __construct(string $name)
+    {
+        $this->setName($name);
+    }
+
+    /**
+     * @PhpUnitGen\assertEquals("'John'")
+     */
+    public function __toString()
+    {
+        return 'A simple person.';
+    }
+
+    /**
+     * @PhpUnitGen\Set()
+     */
+    public function setName(string $name)
+    {
+        $this->name = $name;
+    }
+}

@@ -1,0 +1,33 @@
+<section id="tab-tests-editor" style="display: none;">
+    <div class="row valign-wrapper">
+        <div class="col s1 l2">
+            <button type="button" class="btn-floating btn-large btn-tab orange tooltipped"
+                    data-position="right" data-duration="50" data-tooltip="Go to the code editor"
+                    data-source="tests-editor" data-target="code-editor" data-direction="left">
+                <i class="material-icons">create</i>
+            </button>
+        </div>
+        <div class="col s10 l8">
+            <h3>...And here are your tests skeletons!</h3>
+
+            <div style="margin-top: 20px">
+                <button type="button" id="btn-download-file" class="btn waves-effect waves-light orange tooltipped"
+                        data-tooltip="Download as a file">
+                    <i class="material-icons">file_download</i>
+                </button>
+                &nbsp;
+                <button type="button" id="btn-copy-clipboard" class="btn waves-effect waves-light orange tooltipped"
+                        data-tooltip="Copy to clipboard" style="margin-right: 10px;">
+                    <i class="material-icons">content_copy</i>
+                </button>
+            </div>
+
+            <div class="left-align" style="margin-top: 10px">
+                <textarea id="tests-editor-textarea" name="tests-editor-textarea"><?=
+                    file_get_contents(__DIR__ . '/../examples/code.txt')
+                    ?></textarea>
+            </div>
+        </div>
+        <div class="col s1 l2"></div>
+    </div>
+</section>

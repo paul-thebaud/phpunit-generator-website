@@ -1,19 +1,33 @@
 <?php
 // DIC configuration
 
+use PhpUnitGen\Website\Controller\GenerateController;
+use Psr\Container\ContainerInterface;
+use Slim\Http\Request;
+use Slim\Http\Response;
+use Slim\Views\PhpRenderer;
+
 $container = $app->getContainer();
 
-// view renderer
-$container['renderer'] = function ($c) {
-    $settings = $c->get('settings')['renderer'];
-    return new Slim\Views\PhpRenderer($settings['template_path']);
+// View renderer
+$container[PhpRenderer::class] = function (ContainerInterface $container): PhpRenderer {
+    $settings = $container->get('settings')['renderer'];
+    return new PhpRenderer($settings['template_path']);
 };
 
-// monolog
-$container['logger'] = function ($c) {
-    $settings = $c->get('settings')['logger'];
-    $logger = new Monolog\Logger($settings['name']);
-    $logger->pushProcessor(new Monolog\Processor\UidProcessor());
-    $logger->pushHandler(new Monolog\Handler\StreamHandler($settings['path'], $settings['level']));
-    return $logger;
+// Controller
+$container[GenerateController::class] = function (): GenerateController {
+    return new GenerateController();
+};
+
+// 404 Not Found page
+$container['notFoundHandler'] = function (ContainerInterface $container): callable {
+    return function (Request $request, Response $response) use ($container) {
+        return $container->get(PhpRenderer::class)->render($response->withStatus(404), 'error/404.phtml');
+    };
+};
+$container['notAllowedHandler'] = function (ContainerInterface $container): callable {
+    return function (Request $request, Response $response) use ($container) {
+        return $container->get(PhpRenderer::class)->render($response->withStatus(405), 'error/405.phtml');
+    };
 };
