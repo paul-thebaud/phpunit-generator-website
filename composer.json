@@ -20,7 +20,7 @@
   "require": {
     "php": "^7.1",
     "erusev/parsedown": "^1.6",
-    "paulthebaud/phpunit-generator": "dev-develop",
+    "paulthebaud/phpunit-generator": "^2.0",
     "slim/slim": "^3.1",
     "slim/php-view": "^2.0"
   },
