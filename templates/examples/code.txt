@@ -13,18 +13,26 @@ class Person
     }
 
     /**
+     * @PhpUnitGen\get()
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @PhpUnitGen\set()
+     */
+    public function setName(string $name)
+    {
+        $this->name = $name;
+    }
+
+    /**
      * @PhpUnitGen\assertEquals("'John'")
      */
     public function __toString()
     {
         return 'A simple person.';
-    }
-
-    /**
-     * @PhpUnitGen\Set()
-     */
-    public function setName(string $name)
-    {
-        $this->name = $name;
     }
 }
