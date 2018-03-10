@@ -1,4 +1,6 @@
-<h4>PhpUnitGen - Website</h4>
+<h4>Website usage</h4>
+<div class="divider"></div>
+<br>
 
 This website provide a full configuration of PhpUnitGen:
 <ul style="list-style-type:circle">
@@ -10,9 +12,13 @@ This website provide a full configuration of PhpUnitGen:
     <li>PHPDoc annotations: a list of annotations that should be include in your tests class header documentation</li>
 </ul>
 
+<h4>Annotations usage</h4>
+<div class="divider"></div>
+<br>
 
+<?php
+$mdDocumentation = file_get_contents('https://raw.github.com/paul-thebaud/phpunit-generator/develop/documentation/ANNOTATIONS.md');
+$mdDocumentation = preg_replace('/^.+\n/', '', $mdDocumentation);
 
-<?=
-Parsedown::instance()
-    ->text(file_get_contents('https://raw.github.com/paul-thebaud/phpunit-generator/develop/documentation/ANNOTATIONS.md'));
+echo Parsedown::instance()->text($mdDocumentation);
 ?>
