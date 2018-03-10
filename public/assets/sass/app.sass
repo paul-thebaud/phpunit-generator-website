@@ -43,6 +43,18 @@ nav
     font-size: 120%
     text-transform: uppercase
 
+// Mobile navigation
+#global-mobile
+  position: fixed
+  z-index: 99999
+  width: 100%
+  height: 100%
+  left: 0
+  top: 0
+  background-color: rgba(0, 0, 0, 0.9)
+  button
+    font-weight: normal
+
 // Configuration
 #modal-configuration
   .configuration-categories
@@ -120,7 +132,7 @@ input[type="file"]
 
 // Spinner
 #spinner-container
-  position: absolute
+  position: fixed
   z-index: 99999
   top: 0
   left: 0

@@ -50,6 +50,11 @@ PhpUnitGen.FormListener = (function() {
     configFormOnClick('#btn-confirm-reset', function() {
       PhpUnitGen.Config.reset();
     });
+
+    // Mobile navigation
+    $(document).find('#btn-visit-mobile').on('click', function() {
+      PhpUnitGen.Mobile.alwaysHide();
+    });
   };
 
   /*

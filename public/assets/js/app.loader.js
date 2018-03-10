@@ -21,6 +21,7 @@ PhpUnitGen.AppLoader = (function() {
     'assets/js/lib/app.page.loader.js',
     'assets/js/lib/app.form.loader.js',
     'assets/js/lib/app.config.js',
+    'assets/js/lib/app.mobile.js',
     'assets/js/lib/app.form.listener.js',
     'assets/js/lib/app.request.js',
     'assets/js/lib/app.tab.js',
@@ -77,6 +78,7 @@ $(document).ready(function() {
   PhpUnitGen.AppLoader.initialize(function() {
     // And initialize each modules
     PhpUnitGen.CookieLaw.initialize();
+    PhpUnitGen.Mobile.initialize();
     PhpUnitGen.FormListener.initialize();
     PhpUnitGen.PageLoader.initialize();
     PhpUnitGen.Config.initialize();
