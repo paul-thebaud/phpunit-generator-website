@@ -23,6 +23,6 @@ $app->post('/generate', function (Request $request, Response $response) {
 });
 
 // FR version of the article about PhpUnitGen
-$app->post('/generate', function (Request $request, Response $response) {
+$app->post('/article', function (Request $request, Response $response) {
     return $this->get(PhpRenderer::class)->render($response, 'fr-article.html');
 });
