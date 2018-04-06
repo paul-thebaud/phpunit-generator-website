@@ -1,6 +1,4 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 
 if (PHP_SAPI == 'cli-server') {
     // To help the built-in PHP dev server, check if the request was actually for
@@ -16,8 +14,17 @@ require __DIR__ . '/../vendor/autoload.php';
 
 session_start();
 
-// Instantiate the app
 $settings = require __DIR__ . '/../src/settings.php';
+if (file_exists(__DIR__ . '/../src/local.php')) {
+    $localSettings = require __DIR__ . '/../src/local.php';
+    $settings = array_merge($settings, $localSettings);
+}
+
+if ($settings['settings']['displayErrorDetails'] === true) {
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+}
+
 $app = new \Slim\App($settings);
 
 // Set up dependencies

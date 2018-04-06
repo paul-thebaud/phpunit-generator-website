@@ -1,0 +1,10 @@
+<?php
+return [
+    'settings' => [
+        // Error and headers
+        'displayErrorDetails' => true, // set to false in production
+        // App sub-domains
+        'apiDomain' => 'api.phpunitgen.local',
+        'documentationDomain' => 'doc.phpunitgen.local'
+    ],
+];
