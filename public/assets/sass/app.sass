@@ -102,21 +102,39 @@ nav
     padding-bottom: 66px !important
     font-size: 115%
 
-.collection
-  border: none
-  .collection-header
-    margin-bottom: 0
-    margin-top: 0
-    color: color('grey', 'darken-4')
-  a.collection-item
-    color: color('grey', 'darken-4')
+.hasSidebar
+  nav, main, footer
+    padding-left: 300px
+  @media only screen and (max-width : 992px)
+    nav, main, footer
+      padding-left: 0
 
 ul.browser-default
   list-style: square
 
+i.char-as-icon
+  float: left
+  height: 48px
+  font-size: 1.2em
+  font-weight: bold
+  font-style: normal
+  line-height: 48px
+  margin: 0 32px 0 0
+  max-width: 24px
+  color: rgba(0,0,0,.54)
+
 .card.blue, .card.orange
-  h5
-    margin-top: 0 !important
+  .card-content
+    padding: 15px
+    h5
+      font-size: 1.3em
+      font-family: 'Merriweather Sans', sans-serif !important
+      margin-top: 0 !important
+      margin-bottom: 5px !important
+      .material-icons
+        font-size: 1.1em
+    p
+      font-size: 0.9em
 
 
 // Forms

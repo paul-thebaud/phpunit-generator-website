@@ -16,22 +16,26 @@ class Language
     const LANGUAGES = [
         'en' => [
             'header'      => 'Documentation',
+            'language'    => 'Language',
             'home'        => 'Home',
             'about'       => 'About',
             'website'     => 'Web application',
             'terminal'    => 'Command line',
             'php'         => 'PHP code',
             'annotations' => 'Annotations',
+            'back'        => 'Back to the application'
         ],
         'fr' => [
             'header'      => 'Documentation',
+            'language'    => 'Langage',
             'home'        => 'Accueil',
             'about'       => 'A propos',
             'website'     => 'Application Web',
             'terminal'    => 'Ligne de commande',
             'php'         => 'Code PHP',
             'annotations' => 'Annotations',
-            'article'     => 'Article'
+            'article'     => 'Article',
+            'back'        => 'Retour à l\'application'
         ]
     ];
 }

@@ -1,0 +1,82 @@
+<?php $translations = \PhpUnitGen\Website\Language\Language::LANGUAGES[$language]; ?>
+
+<ul id="slide-out" class="side-nav fixed">
+    <li class="<?= $page === 'index' ? 'active' : '' ?>">
+        <a href="/<?= $language ?>"
+           class="waves-effect">
+            <i class="material-icons left">home</i>
+            <?= $translations['home'] ?>
+        </a>
+    </li>
+    <li class="<?= $page === 'about' ? 'active' : '' ?>">
+        <a href="/<?= $language ?>/about.html"
+           class="waves-effect">
+            <i class="material-icons left">info</i>
+            <?= $translations['about'] ?>
+        </a>
+    </li>
+    <li>
+        <div class="divider"></div>
+    </li>
+    <li>
+        <a class="subheader"><?= $translations['header'] ?></a>
+    </li>
+    <li class="<?= $page === 'website' ? 'active' : '' ?>">
+        <a href="/<?= $language ?>/website.html"
+           class="waves-effect">
+            <i class="material-icons left">laptop</i>
+            <?= $translations['website'] ?>
+        </a>
+    </li>
+    <li class="<?= $page === 'terminal' ? 'active' : '' ?>">
+        <a href="/<?= $language ?>/terminal.html"
+           class="waves-effect">
+            <i class="material-icons left">featured_play_list</i>
+            <?= $translations['terminal'] ?>
+        </a>
+    </li>
+    <li class="<?= $page === 'php' ? 'active' : '' ?>">
+        <a href="/<?= $language ?>/php.html"
+           class="waves-effect">
+            <i class="material-icons left">keyboard</i>
+            <?= $translations['php'] ?>
+        </a>
+    </li>
+    <li class="<?= $page === 'annotations' ? 'active' : '' ?>">
+        <a href="/<?= $language ?>/annotations.html"
+           class="waves-effect">
+            <i class="char-as-icon">@</i>
+            <?= $translations['annotations'] ?>
+        </a>
+    </li>
+    <li>
+        <div class="divider"></div>
+    </li>
+    <li>
+        <a class="subheader"><?= $translations['language'] ?></a>
+    </li>
+    <li>
+        <a href="/en<?= $page === 'index' ? '' : ('/' . $page . '.html') ?>" class="waves-effect">English</a>
+    </li>
+    <li>
+        <a href="/fr<?= $page === 'index' ? '' : ('/' . $page . '.html') ?>" class="waves-effect">Français</a>
+    </li>
+    <li>
+        <div class="divider"></div>
+    </li>
+    <li>
+        <a class="subheader">PhpUnitGen</a>
+    </li>
+    <li>
+        <a href="<?= $this->getAttribute(\PhpUnitGen\Website\Middleware\ResourceMiddleware::RESOURCE_APP) ?>"
+           class="waves-effect"><i class="material-icons left">play_arrow</i> <?= $translations['back'] ?></a>
+    </li>
+</ul>
+
+<div class="fixed-action-btn">
+    <a href="<?= $this->getAttribute(\PhpUnitGen\Website\Middleware\ResourceMiddleware::RESOURCE_APP) ?>"
+       id="btn-documentation" class="btn-floating btn-large orange tooltipped"
+       data-position="left" data-duration="50" data-tooltip="<?= $translations['back'] ?>">
+        <i class="large material-icons">play_arrow</i>
+    </a>
+</div>

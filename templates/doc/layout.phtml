@@ -5,22 +5,15 @@
 
 <body>
 
-<div id="global">
+<div id="global" class="hasSidebar">
     <?php include __DIR__ . '/../layout/partial/nav.phtml'; ?>
 
-    <main class="container">
+    <?php include __DIR__ . '/partial/sidenav.phtml'; ?>
 
-        <?php $translations = \PhpUnitGen\Website\Language\Language::LANGUAGES[$language]; ?>
+    <main>
         <div class="row">
-            <div class="col s12 m4 l4 xl3">
-                <?php include __DIR__ . '/partial/nav.phtml'; ?>
-            </div>
-            <div class="col s12 m8 l8 xl9">
-                <div class="card">
-                    <div class="card-content">
-                        <?php include __DIR__ . '/' . $view ?>
-                    </div>
-                </div>
+            <div class="col s12 l10 xl9" style="padding: 20px">
+                <?php include __DIR__ . '/' . $view ?>
             </div>
         </div>
 
@@ -29,17 +22,15 @@
     <?php include __DIR__ . '/../layout/partial/footer.phtml'; ?>
 </div>
 
-<div class="fixed-action-btn">
-    <a href="<?= $this->getAttribute(\PhpUnitGen\Website\Middleware\ResourceMiddleware::RESOURCE_APP) ?>"
-       id="btn-documentation" class="btn-floating btn-large orange tooltipped"
-       data-position="left" data-duration="50" data-tooltip="Back to PhpUnitGen!">
-        <i class="large material-icons">play_arrow</i>
-    </a>
-</div>
-
 <?php include __DIR__ . '/../layout/partial/legal.phtml'; ?>
 
 <?php include __DIR__ . '/../layout/scripts.phtml'; ?>
+
+<script type="application/javascript">
+    $(document).ready(function () {
+        $("#btn-sidenav").sideNav();
+    });
+</script>
 
 </body>
 
