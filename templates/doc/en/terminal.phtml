@@ -1,0 +1,164 @@
+<h3>Command line</h3>
+
+<p>
+    When you install this package, you can use the command line to generate your unit tests skeleton.
+    Use this command in project root directory.
+</p>
+
+<pre><code class="bash language-bash">
+$ php ./vendor/bin/phpunitgen
+</code></pre>
+
+<p>
+    For this command, you will need a configuration file written
+    in <code>YAML</code>, <code>JSON</code> or <code>PHP</code>.
+</p>
+
+<ul class="browser-default">
+    <li>
+        <code>YAML</code> example is available
+        <a href="https://github.com/paul-thebaud/phpunit-generator/examples/phpunitgen.config.yml" target="_blank">
+            here <sup><i class="material-icons tiny">open_in_new</i></sup>
+        </a>.
+    </li>
+    <li>
+        <code>JSON</code> example is available
+        <a href="https://github.com/paul-thebaud/phpunit-generator/examples/phpunitgen.config.json" target="_blank">
+            here <sup><i class="material-icons tiny">open_in_new</i></sup>
+        </a>.
+    </li>
+    <li>
+        <code>PHP</code> example is available
+        <a href="https://github.com/paul-thebaud/phpunit-generator/examples/phpunitgen.config.php" target="_blank">
+            here <sup><i class="material-icons tiny">open_in_new</i></sup>
+        </a>.
+    </li>
+</ul>
+
+<p>
+    By default, PhpUnitGen search for a configuration file
+    named <code>phpunitgen.yml</code> at the project root.
+</p>
+
+<p>
+    But if you want to use a <strong>custom configuration path</strong>, you can use an option:
+</p>
+
+<pre><code class="bash language-bash">
+$ php ./vendor/bin/phpunitgen --config=my/custom/config.yml
+
+$ php ./vendor/bin/phpunitgen -c=my/custom/config.yml
+</code></pre>
+
+<p>
+    Use PhpUnitGen <strong>on one file</strong> only
+    (use of <code>file</code> option need a source and a target):
+</p>
+
+<pre><code class="bash language-bash">
+$ php ./vendor/bin/phpunitgen --file source/file.php target/file.php
+
+$ php ./vendor/bin/phpunitgen -f source/file.php target/file.php
+</code></pre>
+
+<p>
+    Use PhpUnitGen <strong>on one directory</strong> only
+    (use of <code>dir</code> option need a source and a target):
+</p>
+
+<pre><code class="bash language-bash">
+$ php ./vendor/bin/phpunitgen --dir source/dir target/dir
+
+$ php ./vendor/bin/phpunitgen -d source/dir target/dir
+</code></pre>
+
+<p>
+    Use PhpUnitGen <strong>with default configuration</strong>
+    (use of default configuration need a source and a target):
+</p>
+
+<pre><code class="bash language-bash">
+$ php ./vendor/bin/phpunitgen --default --file source/file.php target/file.php
+$ php ./vendor/bin/phpunitgen --default --dir source/dir target/dir
+
+$ php ./vendor/bin/phpunitgen -D -f source/file.php target/file.php
+$ php ./vendor/bin/phpunitgen -D -d source/dir target/dir
+</code></pre>
+
+<div class="card blue lighten-2">
+    <div class="card-content">
+        <h5><i class="material-icons left">info</i>Notice</h5>
+        <ul class="browser-default">
+            <li>
+                If you use the <code>default</code> option with the <code>config</code> option, configuration will
+                be ignored and default configuration will be used.
+            </li>
+            <li>
+                If you use the <code>default</code> option, and you don't provide the <code>dir</code>
+                or the <code>file</code> option, PhpUnitGen will consider that source and target paths are directories.
+            </li>
+            <li>
+                As PhpUnitGen use the Symfony Console package, you can combine multiple option together:
+                <code>$ php ./vendor/bin/phpunitgen -fc my/custom/config.yml source/file.php target/file.php</code>
+                will parse one file with your custom configuration.
+            </li>
+        </ul>
+    </div>
+</div>
+
+<h4>Configuration</h4>
+
+<p>A configuration file needs the following parameters :</p>
+
+<ul class="browser-default">
+    <li>
+        <strong>overwrite</strong> [<em>boolean</em>]: Set <em>true</em> if you want to erase old files with the new ones.
+    </li>
+    <li>
+        <strong>backup</strong> [<em>boolean</em>]: Set <em>true</em> if you want to backup old files before erase
+        them when <code>overwrite</code> is set to <em>true</em>.
+        Backup files while be named as following: <code>your_file.php.bak</code>
+    </li>
+    <li>
+        <strong>interface</strong> [<em>boolean</em>]: Set <em>true</em> if you
+        want to generate unit tests skeletons for interface too.
+    </li>
+    <li>
+        <strong>private</strong> [<em>boolean</em>]: Set <em>true</em> if you want to generate unit
+        tests skeletons for private / protected methods too.
+    </li>
+    <li>
+        <strong>auto</strong> [<em>boolean</em>]: Set <em>true</em> if you want to automatically
+        generate <code>getter</code> / <code>setter</code> unit tests, and class or trait instantiation.
+    </li>
+    <li>
+        <strong>ignore</strong> [<em>boolean</em>]: Set <em>true</em> if you want to ignore errors that are not fatal.
+    </li>
+    <li>
+        <strong>exclude</strong> [<em>string</em> or <em>null</em>]: A PHP regex to filter files that
+        have not to be parsed. Set as <em>null</em> if you do not want to use an exclude regex.
+    </li>
+    <li>
+        <strong>include</strong> [<em>string</em> or <em>null</em>]: A PHP regex to filter files that
+        have to be parsed. Set as <em>null</em> if you do not want to use an include regex.
+    </li>
+    <li>
+        <strong>dirs</strong> [<em>array</em>]: An array of <code>source: target</code> directories.
+        PhpUnitGen will parse each files in your source directory (an array key)
+        and put the generated unit tests skeletons in your target directory (an array value).
+        It will also parse sub-directories. <em>null</em> if you have no directory to parse.
+    </li>
+    <li>
+        <strong>files</strong> [<em>array</em>]: An array of <code>source: target</code> files. PhpUnitGen
+        will parse each files in your source file (an array key)
+        and put the generated unit tests skeletons in your target file (an array value).
+        <em>null</em> if you have no file to parse.
+    </li>
+</ul>
+
+<h4>Next step</h4>
+
+<p>
+    Now you know how to run PhpUnitGen on the command line,
+    <a href="/<?= $language ?>/annotations.html">learn more on PhpUnitGen annotations</a>.
+</p>

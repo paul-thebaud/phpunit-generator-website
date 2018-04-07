@@ -242,3 +242,8 @@ pre.language-php:before {
 pre.language-scss:before {
     content: 'SCSS (Sass / Compass)';
 }
+
+/* line 280, syntax-highlighting.scss */
+pre.language-bash:before {
+    content: 'BASH';
+}

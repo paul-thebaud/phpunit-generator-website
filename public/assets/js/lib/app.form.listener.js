@@ -42,9 +42,6 @@ PhpUnitGen.FormListener = (function() {
     configFormOnClick('.btn-annotation-delete', function(_this) {
       configFormRemovePhpdoc(_this.data('target'));
     });
-    configFormOnClick('#btn-documentation', function() {
-      PhpUnitGen.Request.getDocumentation();
-    });
 
     // Configuration reset
     configFormOnClick('#btn-confirm-reset', function() {

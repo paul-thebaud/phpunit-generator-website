@@ -1,0 +1,20 @@
+<nav class="blue">
+    <div class="nav-wrapper container">
+        <a href="<?= $this->getAttribute(\PhpUnitGen\Website\Middleware\ResourceMiddleware::RESOURCE_APP) ?>"
+           class="brand-logo valign-wrapper left">
+            <img class="responsive-img" alt="PhpUnitGen"
+                 src="https://raw.github.com/paul-thebaud/phpunit-generator-assets/master/logos/light_logo.svg?sanitize=true">
+        </a>
+        <ul class="right">
+            <?php if (isset($isApp)): ?>
+                <li>
+                    <a href="#modal-configuration" class="modal-trigger">
+                        <i class="material-icons left">settings</i><span class="hide-on-small-only">Settings</span>
+                    </a>
+                </li>
+            <?php else: ?>
+
+            <?php endif; ?>
+        </ul>
+    </div>
+</nav>

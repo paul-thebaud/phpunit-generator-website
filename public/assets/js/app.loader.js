@@ -13,7 +13,6 @@ PhpUnitGen.AppLoader = (function() {
    * @type {string[]} scripts A scripts to load array.
    */
   var scripts = [
-    'assets/js/lib/app.cookie.js',
     'assets/js/lib/app.toast.js',
     'assets/js/lib/app.theme.js',
     'assets/js/lib/app.spinner.js',
@@ -77,12 +76,13 @@ $(document).ready(function() {
   // Load PhpUnitGen app
   PhpUnitGen.AppLoader.initialize(function() {
     // And initialize each modules
-    PhpUnitGen.CookieLaw.initialize();
     PhpUnitGen.Mobile.initialize();
     PhpUnitGen.FormListener.initialize();
     PhpUnitGen.PageLoader.initialize();
     PhpUnitGen.Config.initialize();
     PhpUnitGen.Tab.initialize();
     PhpUnitGen.EditorListener.initialize();
+
+    $('#app-loader').fadeOut(500);
   });
 });

@@ -3,7 +3,7 @@ const PHPUNITGEN_LS_COOKIE_USAGE = 'PhpUnitGen.storage.cookie_usage';
 /**
  * Represents the cookie law container manager.
  */
-PhpUnitGen.CookieLaw = (function() {
+PhpUnitGenCookieLaw = (function() {
   var self = {};
 
   /**

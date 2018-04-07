@@ -1,15 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<?php require_once __DIR__ . '/partial/header.phtml'; ?>
-
-<body>
+<div id="app-loader" class="valign-wrapper">
+    <div style="max-width: 500px; margin: 0 auto">
+        <div style="max-width: 300px; margin: 0 auto">
+            <img class="responsive-img" alt="PhpUnitGen"
+                 src="https://raw.github.com/paul-thebaud/phpunit-generator-assets/master/logos/logo.svg?sanitize=true">
+            <div class="progress orange lighten-5">
+                <div class="indeterminate orange"></div>
+            </div>
+        </div>
+        <h5>PhpUnitGen is loading, please wait.</h5>
+    </div>
+</div>
 
 <?php require_once __DIR__ . '/partial/mobile.phtml'; ?>
 
 <div id="global">
 
-    <?php require_once __DIR__ . '/partial/nav.phtml'; ?>
+    <?php require_once __DIR__ . '/../layout/partial/nav.phtml'; ?>
 
     <main class="valign-wrapper">
 
@@ -25,8 +31,6 @@
 
         <?php require_once __DIR__ . '/modal/documentation.phtml'; ?>
 
-        <?php require_once __DIR__ . '/modal/legal.phtml'; ?>
-
         <?php require_once __DIR__ . '/modal/configuration.phtml'; ?>
 
         <?php require_once __DIR__ . '/modal/confirm-reset.phtml'; ?>
@@ -37,10 +41,7 @@
 
     <?php require_once __DIR__ . '/partial/spinner.phtml'; ?>
 
-    <?php require_once __DIR__ . '/partial/footer.phtml'; ?>
+    <?php require_once __DIR__ . '/../layout/partial/footer.phtml'; ?>
 
 </div>
 
-</body>
-
-</html>

@@ -4,8 +4,6 @@
 PhpUnitGen.Request = (function() {
   var self = {};
 
-  var documentation = false;
-
   /**
    * Handle an Ajax error.
    * @param error The error to show.
@@ -16,12 +14,12 @@ PhpUnitGen.Request = (function() {
   }
 
   /**
-   * Get the documentation and add it if not already retrieved.
+   * Invoke the PhpUnitGen service.
    */
   self.invokePhpUnitGen = function(source) {
     PhpUnitGen.Spinner.toggle();
     $.ajax({
-      url: '/generate',
+      url: URL_API + '/invoke-generator',
       type: 'POST',
       data: {
         config: PhpUnitGen.Config.toJson(),
@@ -55,27 +53,6 @@ PhpUnitGen.Request = (function() {
       },
       error: function(error) {
         PhpUnitGen.Spinner.toggle();
-        handleAjaxError(error);
-      }
-    });
-  };
-
-  /**
-   * Get the documentation and add it if not already retrieved.
-   */
-  self.getDocumentation = function() {
-    if (documentation) {
-      return;
-    }
-    $.ajax({
-      url: '/documentation',
-      type: 'GET',
-      dataType: 'html',
-      success: function(html) {
-        $(document).find('#modal-documentation .content').html(html);
-        Prism.highlightAll();
-      },
-      error: function(error) {
         handleAjaxError(error);
       }
     });

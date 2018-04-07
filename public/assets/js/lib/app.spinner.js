@@ -12,8 +12,10 @@ PhpUnitGen.Spinner = (function() {
   self.toggle = function() {
     if (spinnerContainer.is(':visible')) {
       spinnerContainer.fadeOut(250);
+      $('nav, main, footer').removeClass('has-blur');
     } else {
       spinnerContainer.fadeIn(250);
+      $('nav, main, footer').addClass('has-blur');
     }
   };
 

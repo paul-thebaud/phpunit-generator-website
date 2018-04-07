@@ -30,6 +30,14 @@ main
   font-family: 'Londrina Solid', sans-serif
   font-size: 130%
 
+// App page loader
+#app-loader
+  position: fixed
+  z-index: 999999
+  width: 100%
+  height: 100%
+  background-color: #fff
+
 // Navigation
 nav
   font-family: 'Londrina Solid', sans-serif
@@ -42,6 +50,10 @@ nav
   ul li a
     font-size: 120%
     text-transform: uppercase
+
+// Footer
+.page-footer
+  padding-top: 0
 
 // Mobile navigation
 #global-mobile
@@ -90,11 +102,22 @@ nav
     padding-bottom: 66px !important
     font-size: 115%
 
-#modal-documentation
-  ul:not(.browser-default)
-    margin-left: 30px
-    li
-      list-style-type: initial !important
+.collection
+  border: none
+  .collection-header
+    margin-bottom: 0
+    margin-top: 0
+    color: color('grey', 'darken-4')
+  a.collection-item
+    color: color('grey', 'darken-4')
+
+ul.browser-default
+  list-style: square
+
+.card.blue, .card.orange
+  h5
+    margin-top: 0 !important
+
 
 // Forms
 input[type="file"]
@@ -141,6 +164,7 @@ input[type="file"]
   height: 100%
   width: 100%
   background-color: rgba(0, 0, 0, 0.5)
+  display: none
   .preloader-wrapper
     position: absolute
     z-index: 99999
@@ -156,6 +180,11 @@ input[type="file"]
       .circle
         border-width: 7px !important
 
+.has-blur
+  -webkit-transition: all 0.25s ease-out
+  transition: all 0.25s ease-out
+  -webkit-filter: blur(5px)
+  filter: blur(5px)
 
 // Editors
 .white

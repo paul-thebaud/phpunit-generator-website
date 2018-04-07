@@ -13,9 +13,7 @@ PhpUnitGen.PageLoader = (function() {
    * Initialize the module.
    */
   self.initialize = function() {
-    $('.tooltipped').tooltip({delay: 50});
     $('select').material_select();
-    $('.modal').modal();
 
     codeEditorContent = '<?php' +
         $(document).find('#code-editor-content').text();

@@ -14,17 +14,21 @@ require __DIR__ . '/../vendor/autoload.php';
 
 session_start();
 
+// Build settings, and merge dev settings if exists
 $settings = require __DIR__ . '/../src/settings.php';
 if (file_exists(__DIR__ . '/../src/local.php')) {
     $localSettings = require __DIR__ . '/../src/local.php';
     $settings = array_merge($settings, $localSettings);
 }
+$settings = ['settings' => $settings];
 
+// If debug is enabled, display all PHP errors
 if ($settings['settings']['displayErrorDetails'] === true) {
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
 }
 
+// Instantiate app
 $app = new \Slim\App($settings);
 
 // Set up dependencies

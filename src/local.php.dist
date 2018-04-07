@@ -1,10 +1,16 @@
 <?php
+
+use PhpUnitGen\Website\Middleware\ResourceMiddleware;
+
 return [
-    'settings' => [
-        // Error and headers
-        'displayErrorDetails' => true, // set to false in production
-        // App sub-domains
-        'apiDomain' => 'api.phpunitgen.local',
-        'documentationDomain' => 'doc.phpunitgen.local'
-    ],
+    // Error and headers
+    'displayErrorDetails'            => true,
+    // Cross-origin allowed website
+    'crossOrigin'                    => ['http://phpunitgen.local', 'http://www.phpunitgen.local'],
+    // Define the protocol to use
+    'protocol'                       => 'http://',
+    // App sub-domains
+    ResourceMiddleware::RESOURCE_APP => 'phpunitgen.local',
+    ResourceMiddleware::RESOURCE_API => 'api.phpunitgen.local',
+    ResourceMiddleware::RESOURCE_DOC => 'doc.phpunitgen.local'
 ];
