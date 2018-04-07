@@ -5,4 +5,14 @@
         <lastmod>2018-03-10</lastmod>
         <priority>1</priority>
     </url>
+    <url>
+        <loc>https://doc.phpunitgen.io/en</loc>
+        <lastmod>2018-04-07</lastmod>
+        <priority>2</priority>
+    </url>
+    <url>
+        <loc>https://doc.phpunitgen.io/fr</loc>
+        <lastmod>2018-04-07</lastmod>
+        <priority>2</priority>
+    </url>
 </urlset>

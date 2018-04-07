@@ -14,6 +14,15 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 use Slim\Views\PhpRenderer;
 
+/**
+ * Class AppController.
+ *
+ * @author     Paul Thébaud <paul.thebaud29@gmail.com>.
+ * @copyright  2017-2018 Paul Thébaud <paul.thebaud29@gmail.com>.
+ * @license    https://opensource.org/licenses/MIT The MIT license.
+ * @link       https://github.com/paul-thebaud/phpunit-generator-website
+ * @since      Class available since Release 2.0.0.
+ */
 class AppController
 {
     /**
@@ -45,12 +54,16 @@ class AppController
      */
     private $renderer;
 
+    /**
+     * @var Language $language The Language to use multi languages documentation.
+     */
     private $language;
 
     /**
      * AppController constructor.
      *
      * @param PhpRenderer $renderer The PhpRenderer to render HTML view.
+     * @param Language $language The Language to use multi languages documentation.
      */
     public function __construct(PhpRenderer $renderer, Language $language)
     {
@@ -246,6 +259,7 @@ class AppController
         }
 
         $page = $page ?? 'index';
+
         return $this->renderer->render($response, 'doc/layout.phtml', [
             'view'     => sprintf('%s/%s.phtml', $language, $page),
             'language' => $language,
