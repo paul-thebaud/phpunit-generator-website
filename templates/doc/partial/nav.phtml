@@ -1,0 +1,30 @@
+<div class="collection with-header card">
+    <a href="/<?= $language ?>"
+       class="collection-item<?= $page === 'index' ? ' active' : '' ?>">
+        <?= $translations['home'] ?>
+    </a>
+    <a href="/<?= $language ?>/about.html"
+       class="collection-item<?= $page === 'about' ? ' active' : '' ?>">
+        <?= $translations['about'] ?>
+    </a>
+    <h5 class="collection-header"><?= $translations['header'] ?></h5>
+    <a href="/<?= $language ?>/website.html"
+       class="collection-item<?= $page === 'website' ? ' active' : '' ?>">
+        <?= $translations['website'] ?>
+    </a>
+    <a href="/<?= $language ?>/terminal.html"
+       class="collection-item<?= $page === 'terminal' ? ' active' : '' ?>">
+        <?= $translations['terminal'] ?>
+    </a>
+    <a href="/<?= $language ?>/php.html"
+       class="collection-item<?= $page === 'php' ? ' active' : '' ?>">
+        <?= $translations['php'] ?>
+    </a>
+    <a href="/<?= $language ?>/annotations.html"
+       class="collection-item<?= $page === 'annotations' ? ' active' : '' ?>">
+        <?= $translations['annotations'] ?>
+    </a>
+    <h5 class="collection-header">Language</h5>
+    <a href="/en<?= $page === 'index' ? '' : ('/' . $page . '.html') ?>" class="collection-item">English</a>
+    <a href="/fr<?= $page === 'index' ? '' : ('/' . $page . '.html') ?>" class="collection-item">Français</a>
+</div>
