@@ -1,0 +1,177 @@
+<h3>Ligne de commande</h3>
+
+<p>
+    Quand vous installer le package <i>Composer</i>, vous pouvez utiliser PhpUnitGen
+    en ligne de commande.
+    Il faut vous place à la racine de votre projet <i>Composer</i>.
+</p>
+
+<pre><code class="bash language-bash">
+$ php ./vendor/bin/phpunitgen
+</code></pre>
+
+<p>
+    Pour cette commande, vous aurez besoin d'un fichier de configuration écrit
+    en <code>YAML</code>, <code>JSON</code> ou <code>PHP</code>.
+</p>
+
+<ul class="browser-default">
+    <li>
+        L'example <code>YAML</code> se trouve ici
+        <a href="https://github.com/paul-thebaud/phpunit-generator/blob/master/examples/phpunitgen.config.yml" target="_blank">
+            here <sup><i class="material-icons tiny">open_in_new</i></sup>
+        </a>.
+    </li>
+    <li>
+        L'example <code>JSON</code> se trouve ici
+        <a href="https://github.com/paul-thebaud/phpunit-generator/blob/master/examples/phpunitgen.config.json" target="_blank">
+            here <sup><i class="material-icons tiny">open_in_new</i></sup>
+        </a>.
+    </li>
+    <li>
+        L'example <code>PHP</code> se trouve ici
+        <a href="https://github.com/paul-thebaud/phpunit-generator/blob/master/examples/phpunitgen.config.php" target="_blank">
+            here <sup><i class="material-icons tiny">open_in_new</i></sup>
+        </a>.
+    </li>
+</ul>
+
+<p>
+    Par défaut (sans option), PhpUnitGen cherchera un fichier de configuration
+    nommé <code>phpunitgen.yml</code> à la racine du projet.
+</p>
+
+<p>
+    Mais si vous souhaitez utiliser une <strong>configuration personnalisé</strong>, vous pouvez utiliser une option :
+</p>
+
+<pre><code class="bash language-bash">
+$ php ./vendor/bin/phpunitgen --config=my/custom/config.yml
+
+$ php ./vendor/bin/phpunitgen -c=my/custom/config.yml
+</code></pre>
+
+<p>
+    Pour utiliser PhpUnitGen sur <strong>un seul fichier</strong>
+    (l'utilisation de l'option <code>file</code> aura besoin d'une source et d'une cible étant des fichiers) :
+</p>
+
+<pre><code class="bash language-bash">
+$ php ./vendor/bin/phpunitgen --file source/file.php target/file.php
+
+$ php ./vendor/bin/phpunitgen -f source/file.php target/file.php
+</code></pre>
+
+<p>
+    Pour utiliser PhpUnitGen sur <strong>un seul dossier</strong>
+    (l'utilisation de l'option <code>dir</code> aura besoin d'une source et d'une cible étant des dossiers) :
+</p>
+
+<pre><code class="bash language-bash">
+$ php ./vendor/bin/phpunitgen --dir source/dir target/dir
+
+$ php ./vendor/bin/phpunitgen -d source/dir target/dir
+</code></pre>
+
+<p>
+    Pour utiliser PhpUnitGen avec <a href="https://github.com/paul-thebaud/phpunit-generator/blob/master/config/default.phpunitgen.config.php"
+                                     target="_blank"><strong>la configuration par défaut <sup><i class="material-icons tiny">open_in_new</i></sup></strong></a>
+    (l'utilisation de l'option <code>default</code> aura besoin d'une source et d'une cible):
+</p>
+
+<pre><code class="bash language-bash">
+$ php ./vendor/bin/phpunitgen --default --file source/file.php target/file.php
+$ php ./vendor/bin/phpunitgen --default --dir source/dir target/dir
+
+$ php ./vendor/bin/phpunitgen -D -f source/file.php target/file.php
+$ php ./vendor/bin/phpunitgen -D -d source/dir target/dir
+</code></pre>
+
+<div class="card blue lighten-2">
+    <div class="card-content">
+        <h5><i class="material-icons left">info</i>Note</h5>
+        <ul class="browser-default">
+            <li>
+                Si vous utilisez l'option <code>default</code> avec l'option <code>config</code>,
+                la configuration sera ignorée et PhpUnitGen utilisera la configuration par défaut.
+            </li>
+            <li>
+                Si vous utilisez l'option <code>default</code>, et que vous ne fournissez pas d'option <code>dir</code>
+                ou <code>file</code>, PhpUnitGen considèrera que les source et cible sont des dossiers.
+            </li>
+            <li>
+                Etant donné que PhpUnitGen utilise le package de la Console Symfony, vous pouvez
+                combiner plusieurs raccourcis d'options ensemble :
+                <code>$ php ./vendor/bin/phpunitgen -fc my/custom/config.yml source/file.php target/file.php</code>
+                analysera un seul fichier avec la configuration personnalisée fournie.
+            </li>
+        </ul>
+    </div>
+</div>
+
+<h4>Configuration</h4>
+
+<p>Un fichier de configuration aura besoin de tous les paramètres suivants :</p>
+
+<ul class="browser-default">
+    <li>
+        <strong>overwrite</strong> [<em>boolean</em>]: Utilisez la valeur <em>true</em> si vous
+        voulez que les fichiers qui existent déjà soit supprimés.
+    </li>
+    <li>
+        <strong>backup</strong> [<em>boolean</em>]: Utilisez la valeur <em>true</em> si vous
+        voulez qu'une backup soit créée avant de supprimer les fichiers quand
+        l'option <code>overwrite</code> est égale à <em>true</em>.
+        Les fichiers de backup auront le nom suivant : <code>your_file.php.bak</code>
+    </li>
+    <li>
+        <strong>interface</strong> [<em>boolean</em>]: Utilisez la valeur <em>true</em> si vous
+        voulez générer des squelettes de tests pour les interfaces PHP.
+    </li>
+    <li>
+        <strong>private</strong> [<em>boolean</em>]: Utilisez la valeur <em>true</em> si vous
+        voulez générer des squelettes de tests pour les méthodes privées ou protégées.
+    </li>
+    <li>
+        <strong>auto</strong> [<em>boolean</em>]: Utilisez la valeur <em>true</em> si vous
+        voulez générer automatiquement les tests unitaires des méthodes <code>getter</code> /
+        <code>setter</code>, ou les instanciations des classes et des traits.
+    </li>
+    <li>
+        <strong>ignore</strong> [<em>boolean</em>]: Utilisez la valeur <em>true</em> si vous
+        voulez utilisez les erreurs peu importantes (fichier impossible à analyser dans un dossier ...).
+    </li>
+    <li>
+        <strong>exclude</strong> [<em>string</em> ou <em>null</em>]: Un expression régulière PHP pour
+        les fichiers qui ne devraient pas être analysés. Utilisez <em>null</em> en valeur si vous ne
+        souhaitez pas filtrer les fichiers avec ce mode.
+        <br>
+        C'est une condition que les fichiers ne doivent pas remplir pour être analysés.
+    </li>
+    <li>
+        <strong>include</strong> [<em>string</em> ou <em>null</em>]: Un expression régulière PHP pour
+        les fichiers qui doivent être analysés. Utilisez <em>null</em> en valeur si vous ne
+        souhaitez pas filtrer les fichiers avec ce mode.
+        <br>
+        C'est une condition que les fichiers doivent remplir pour être analysés.
+    </li>
+    <li>
+        <strong>dirs</strong> [<em>array</em>]: Un tableau de dossiers <code>source: cible</code>.
+        PhpUnitGen analysera chaque fichier du dossier source (et les sous-dossier),
+        puis générera les fichiers de tests dans le dossier cible.
+        La valeur <em>null</em> permet de ne pas analyser de dossier.
+    </li>
+    <li>
+        <strong>files</strong> [<em>array</em>]: Un tableau de fichiers <code>source: cible</code>.
+        PhpUnitGen analysera chaque fichier source,
+        puis générera les fichiers de tests cibles.
+        La valeur <em>null</em> permet de ne pas analyser de fichier.
+    </li>
+</ul>
+
+<h4>Etape suivante</h4>
+
+<p>
+    Maintenant que vous savez utilisez PhpUnitGen en ligne de commande,
+    <a href="/<?= $language ?>/annotations.html">apprenez en plus sur les annotations PhpUnitGen</a>.
+</p>

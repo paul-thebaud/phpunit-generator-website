@@ -21,6 +21,13 @@
     <li>
         <a class="subheader"><?= $translations['header'] ?></a>
     </li>
+    <li class="<?= $page === 'installation' ? 'active' : '' ?>">
+        <a href="/<?= $language ?>/installation.html"
+           class="waves-effect">
+            <i class="material-icons left">file_download</i>
+            <?= $translations['installation'] ?>
+        </a>
+    </li>
     <li class="<?= $page === 'website' ? 'active' : '' ?>">
         <a href="/<?= $language ?>/website.html"
            class="waves-effect">
@@ -55,12 +62,14 @@
     <li>
         <a class="subheader"><?= $translations['language'] ?></a>
     </li>
-    <li>
-        <a href="/en<?= $page === 'index' ? '' : ('/' . $page . '.html') ?>" class="waves-effect">English</a>
-    </li>
-    <li>
-        <a href="/fr<?= $page === 'index' ? '' : ('/' . $page . '.html') ?>" class="waves-effect">Français</a>
-    </li>
+    <?php foreach (\PhpUnitGen\Website\Language\Language::LANGUAGES as $languageKey => $currentLanguage): ?>
+        <li>
+            <a href="/<?= $languageKey ?><?= $page === 'index' ? '' : ('/' . $page . '.html') ?>" class="waves-effect">
+                <?= $currentLanguage[$languageKey] ?><?php if($language === $languageKey): ?>
+                    <i class="material-icons right">check_circle</i><?php endif; ?>
+            </a>
+        </li>
+    <?php endforeach; ?>
     <li>
         <div class="divider"></div>
     </li>

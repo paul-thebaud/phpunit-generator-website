@@ -14,8 +14,8 @@ use PhpUnitGen\Executor\ExecutorInterface\ExecutorInterface;
 // Require your composer autoload
 require 'vendor/autoload.php';
 
-// Create the config with default value (or a custom array)
-$config = new BaseConfig();
+// Create the config
+$config = new BaseConfig([ /* ... some options ... */ ]);
 
 // Create the dependency container of PhpUnitGen
 $container = (new ContainerFactory())-&gt;invoke($config);

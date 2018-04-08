@@ -1,0 +1,41 @@
+<h3>PHP code</h3>
+
+<p>
+    Here is an example of using PhpUnitGen in a PHP script.
+</p>
+
+<pre><code class="php language-php">
+&lt;?php
+
+use PhpUnitGen\Configuration\BaseConfig;
+use PhpUnitGen\Container\ContainerFactory;
+use PhpUnitGen\Executor\ExecutorInterface\ExecutorInterface;
+
+// Importer l'autoload Composer
+require 'vendor/autoload.php';
+
+// Créer la configuration
+$config = new BaseConfig([ /* ... des options ... */ ]);
+
+// Créer le conteneur de dépendances
+$container = (new ContainerFactory())-&gt;invoke($config);
+
+$myTestClass = 'MyClassTest';
+$myCode = "&lt;?php class MyClass { /* ... du code PHP ... */ }";
+
+// Exécuter PhpUnitGen sur le code et enregistrer les résultats
+$myUnitTestsSkeleton = $container-&gt;get(ExecutorInterface::class)-&gt;invoke($myCode, $myTestClass);
+
+// Afficher les résultats
+echo $myUnitTestsSkeleton;
+</code></pre>
+
+<div class="card blue lighten-2">
+    <div class="card-content">
+        <h5><i class="material-icons left">info</i>Note</h5>
+        <p>
+            <code>new BaseConfig()</code> ou <code>$container-&gt;get(ExecutorInterface::class)-&gt;invoke($myCode, $myTestClass)</code>
+            sont suceptibles de lever des exceptions PHP, si la configuration fournie est invalide par exemple.
+        </p>
+    </div>
+</div>
