@@ -41,7 +41,7 @@ $ php ./vendor/bin/phpunitgen
 </p>
 
 <p>
-    But if you want to use a <strong>custom configuration path</strong>, you can use an option:
+    But if you want to use a <b>custom configuration path</b>, you can use an option:
 </p>
 
 <pre><code class="bash language-bash">
@@ -51,7 +51,7 @@ $ php ./vendor/bin/phpunitgen -c=my/custom/config.yml
 </code></pre>
 
 <p>
-    Use PhpUnitGen <strong>on one file</strong> only
+    Use PhpUnitGen <b>on one file</b> only
     (use of <code>file</code> option need a source and a target):
 </p>
 
@@ -62,7 +62,7 @@ $ php ./vendor/bin/phpunitgen -f source/file.php target/file.php
 </code></pre>
 
 <p>
-    Use PhpUnitGen <strong>on one directory</strong> only
+    Use PhpUnitGen <b>on one directory</b> only
     (use of <code>dir</code> option need a source and a target):
 </p>
 
@@ -74,7 +74,7 @@ $ php ./vendor/bin/phpunitgen -d source/dir target/dir
 
 <p>
     Use PhpUnitGen with <a href="https://github.com/paul-thebaud/phpunit-generator/blob/master/config/default.phpunitgen.config.php"
-                      target="_blank"><strong>the default configuration <sup><i class="material-icons tiny">open_in_new</i></sup></strong></a>
+                      target="_blank"><b>the default configuration <sup><i class="material-icons tiny">open_in_new</i></sup></b></a>
     (use of default configuration need a source and a target):
 </p>
 
@@ -113,47 +113,47 @@ $ php ./vendor/bin/phpunitgen -D -d source/dir target/dir
 
 <ul class="browser-default">
     <li>
-        <strong>overwrite</strong> [<em>boolean</em>]: Set <em>true</em> if you want to erase old files with the new ones.
+        <b>overwrite</b> [<i>boolean</i>]: Set <i>true</i> if you want to erase old files with the new ones.
     </li>
     <li>
-        <strong>backup</strong> [<em>boolean</em>]: Set <em>true</em> if you want to backup old files before erase
-        them when <code>overwrite</code> is set to <em>true</em>.
+        <b>backup</b> [<i>boolean</i>]: Set <i>true</i> if you want to backup old files before erase
+        them when <code>overwrite</code> is set to <i>true</i>.
         Backup files while be named as following: <code>your_file.php.bak</code>
     </li>
     <li>
-        <strong>interface</strong> [<em>boolean</em>]: Set <em>true</em> if you
+        <b>interface</b> [<i>boolean</i>]: Set <i>true</i> if you
         want to generate unit tests skeletons for interface too.
     </li>
     <li>
-        <strong>private</strong> [<em>boolean</em>]: Set <em>true</em> if you want to generate unit
+        <b>private</b> [<i>boolean</i>]: Set <i>true</i> if you want to generate unit
         tests skeletons for private / protected methods too.
     </li>
     <li>
-        <strong>auto</strong> [<em>boolean</em>]: Set <em>true</em> if you want to automatically
+        <b>auto</b> [<i>boolean</i>]: Set <i>true</i> if you want to automatically
         generate <code>getter</code> / <code>setter</code> unit tests, and class or trait instantiation.
     </li>
     <li>
-        <strong>ignore</strong> [<em>boolean</em>]: Set <em>true</em> if you want to ignore errors that are not fatal.
+        <b>ignore</b> [<i>boolean</i>]: Set <i>true</i> if you want to ignore errors that are not fatal.
     </li>
     <li>
-        <strong>exclude</strong> [<em>string</em> or <em>null</em>]: A PHP regex to filter files that
-        have not to be parsed. Set as <em>null</em> if you do not want to use an exclude regex.
+        <b>exclude</b> [<i>string</i> or <i>null</i>]: A PHP regex to filter files that
+        have not to be parsed. Set as <i>null</i> if you do not want to use an exclude regex.
     </li>
     <li>
-        <strong>include</strong> [<em>string</em> or <em>null</em>]: A PHP regex to filter files that
-        have to be parsed. Set as <em>null</em> if you do not want to use an include regex.
+        <b>include</b> [<i>string</i> or <i>null</i>]: A PHP regex to filter files that
+        have to be parsed. Set as <i>null</i> if you do not want to use an include regex.
     </li>
     <li>
-        <strong>dirs</strong> [<em>array</em>]: An array of <code>source: target</code> directories.
+        <b>dirs</b> [<i>array</i>]: An array of <code>source: target</code> directories.
         PhpUnitGen will parse each files in your source directory (an array key)
         and put the generated unit tests skeletons in your target directory (an array value).
-        It will also parse sub-directories. <em>null</em> if you have no directory to parse.
+        It will also parse sub-directories. <i>null</i> if you have no directory to parse.
     </li>
     <li>
-        <strong>files</strong> [<em>array</em>]: An array of <code>source: target</code> files. PhpUnitGen
+        <b>files</b> [<i>array</i>]: An array of <code>source: target</code> files. PhpUnitGen
         will parse each files in your source file (an array key)
         and put the generated unit tests skeletons in your target file (an array value).
-        <em>null</em> if you have no file to parse.
+        <i>null</i> if you have no file to parse.
     </li>
 </ul>
 

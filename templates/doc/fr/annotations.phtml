@@ -1,0 +1,304 @@
+<h3>Annotations</h3>
+
+<p>
+    Au-delà de fournir une configuration de la génération des squelettes de tests,
+    PhpUnitGen apporte aussi des annotations PHPDoc que vous pouvez utilisez dans
+    vos fichiers à tester :
+</p>
+
+<ul class="browser-default">
+    <li>
+        Instanciation de classe : <code>@PhpUnitGen\construct</code>.
+    </li>
+    <li>
+        Génération de tests unitaires pour les méthodes getters et setters : <code>@PhpUnitGen\get</code>
+        et <code>@PhpUnitGen\set</code>.
+    </li>
+    <li>
+        Paramètres des méthodes : <code>@PhpUnitGen\params</code>.
+    </li>
+    <li>
+        Méthodes d'assertion de PHPUnit : <code>@PhpUnitGen\...</code>
+        avec une assertion PHPUnit (<code>@PhpUnitGen\assertTrue</code> par exemple).
+    </li>
+    <li>
+        Création de mock : <code>@PhpUnitGen\mock</code>.
+    </li>
+</ul>
+
+<p>
+    Ces annotations <b>DOIVENT</b> être écrites dans le bloc PHPDoc.
+    Elles commencent toujours par <code>@PhpUnitGen</code> ou <code>@Pug</code>
+    (qui n'est pas sensible à la casse, donc vous pouvez écrire <code>@phpunitgen</code>).
+</p>
+
+<pre><code class="php language-php">
+&lt;?php
+/**
+ * Les suivantes marchent !
+ * @PhpUnitGen\assertTrue()
+ * @Pug\assertTrue()
+ * @pug\assertTrue()
+ * @phpUnitGen\assertTrue()
+ *
+ * Celle-ci ne marche pas :
+ * @PhpUnitGenerator\assertTrue()
+ */
+function validateSomething(): bool { /* du code PHP */ }
+</code></pre>
+
+<p>
+    Vous pouvez trouver quelques exemples basiques d'utilisation des annotations
+    <a href="https://github.com/paul-thebaud/phpunit-generator/tree/master/examples/annotations"
+       target="_blank">ici <sup><i class="material-icons tiny">open_in_new</i></sup></a>
+    avec des fichiers d'entrée et leurs résultats avec PhpUnitGen.
+</p>
+
+<div class="card blue lighten-2">
+    <div class="card-content">
+        <h5><i class="material-icons left">info</i>Note</h5>
+        <p>
+            Les annotations PhpUnitGen sont <b>créées pour générer des tests simples</b>.
+            Si vous voulez tester des méthodes complexes, vous devriez écrire vos tests unitaires vous-même.
+        </p>
+    </div>
+</div>
+
+<h4>Génération automatique</h4>
+
+<p>
+    Quand vous utilisez le paramètre <code>auto</code> de la configuration, PhpUnitGen détectera les
+    méthodes getter / setter et générera les tests unitaires pour ces méthodes.
+</p>
+
+<p>
+    Dans PhpUnitGen, pour une propriété <code>$name</code>, un getter est une méthode <code>getName</code>,
+    un setter est une méthode <code>setName</code>, et la classe ou le trait doit avoir une propriété <code>$name</code>.
+</p>
+
+<p>
+    PhpUnitGen va tester ces méthodes avec un paramètre généré automatiquement, qui
+    aura le type de retour de la méthode pour un getter, ou le type d'argument de la méthode pour un setter.
+</p>
+
+<p>
+    PhpUnitGen va aussi générer les instanciations des classes ou des traits si ils ont une méthode
+    <code>__construct</code>. Il utilisera ici aussi des paramètres générés automatiquement, alors
+    soyez prudent avec ces instanciations automatiques.
+</p>
+
+<h4>Arguments des annotations</h4>
+
+<p>
+    Certaines annotations auront besoin de paramètres. Quand il génère les squelettes, PhpUnitGen
+    analyse ces paramètres comme du contenu JSON, alors tous les paramètres doivent être
+    indiqués par des <code>"</code> lorsque ceux ne sont pas des tableaux ou des objets.
+    Dans ces paramètres, vous pouvez écrire du code PHP, comme une création de Mock :
+    <code>"$this->createMock('MaClasse')"</code>.
+</p>
+
+<p>
+    <b>N'oubliez pas</b> d'échaper l'anti-slash <code>\</code> ou le guillemet <code>"</code>
+    avec un anti-slash <code>\</code>.
+</p>
+
+<h4>Instanciation de classes</h4>
+
+<p>
+    Quand PhpUnitGen génère un squelette de tests, il ne pourra pas toujours détecter le constructeur,
+    car il n'analyse qu'un seul fichier.
+    Si vous fournissez cette annotation dans la documentation de la classe,
+    il créera l'instanciation pour les tests avec vos paramètres.
+</p>
+
+<pre><code class="php language-php">
+&lt;?php
+namespace Company;
+/**
+ * Construit l'instance de tests avec 'new Employee("John", "0123456789")'
+ * @PhpUnitGen\construct(["'John'", "'012-345-6789'"])
+ */
+class Employee extends AbstractPerson
+{
+    public function __construct(string $name, string $cellphone) { /* du code PHP */ }
+}
+</code></pre>
+
+<p>
+    Si vous voulez instancier une autre classe que celle d'origine
+    (quand vous écrivez les tests d'une classe abstraite par exemple),
+    vous pouvez fournir un argument indiquant la classe à instancier :
+</p>
+
+<pre><code class="php language-php">
+&lt;?php
+namespace Company;
+/**
+ * Construit l'instance de tests avec 'new \Company\Employee("John", "0123456789")'
+ * @PhpUnitGen\construct("\Company\Employee", ["'John'", "'0123456789'"])
+ */
+abstract class AbstractPerson { /* du code PHP */ }
+</code></pre>
+
+<h4>Getter et setter</h4>
+
+<p>
+    Pour générer les tests pour un getter ou un setter,
+    PhpUnitGen propose deux annotations.
+</p>
+
+<pre><code class="php language-php">
+&lt;?php
+class Employee {
+    private $name;
+    /**
+     * Vérifie que quand la méthode est appelée, la valeur de la propriété $name est retournée.
+     * @PhpUnitGen\get
+     */
+    public function getName(): string
+    {
+        return $this-&gt;name;
+    }
+    /**
+     * Vérifie que quand la méthode est appelée, la valeur de la propriété $name est changée.
+     * @PhpUnitGen\set
+     */
+    public function setName(string $name): void
+    {
+        $this-&gt;name = $name;
+    }
+}
+</code></pre>
+
+<p>
+    Si voulez indiquer à PhpUnitGen que la méthode n'est pas nommée à partir de la
+    propriété, ajoutez juste le nom de la propriété dans l'annotation.
+</p>
+
+<pre><code class="php language-php">
+&lt;?php
+class Employee {
+    private $phone;
+    /**
+     * Vérifie que quand la méthode est appelée, la valeur de la propriété $phone est retournée.
+     * @PhpUnitGen\get("phone")
+     */
+    public function getCellphone(): string
+    {
+        return $this-&gt;phone;
+    }
+    /**
+     * Vérifie que quand la méthode est appelée, la valeur de la propriété $phone est changée.
+     * @PhpUnitGen\set("phone")
+     */
+    public function setCellphone(string $phone): void
+    {
+        $this-&gt;phone = $phone;
+    }
+}
+</code></pre>
+
+<div class="card blue lighten-2">
+    <div class="card-content">
+        <h5><i class="material-icons left">info</i>Note</h5>
+        <p>
+            Les annotations <code>get</code> et <code>set</code> supportent
+            les méthodes statiques ou d'instance pour les classes, les traits et les interfaces,
+            mais ne supportent pas les méthodes globales (en dehors des classes, traits ou interfaces).
+            PhpUnitGen autorisent les méthodes <code>get</code> ou <code>set</code> privées / protégées.
+        </p>
+    </div>
+</div>
+
+<h4>Assertions sur les résultats d'une méthode</h4>
+
+<p>PhpUnitGen apporte aussi des annotations pour générer des assertions simples :</p>
+
+<pre><code class="php language-php">
+&lt;?php
+class Employee {
+    private $phone;
+    /**
+     * Vérifie que la méthode ne retourne pas un résultat null.
+     * @PhpUnitGen\assertNotNull()
+     * Vérifie que la méthode retourne la chaîne de caractères '012-345-6789'.
+     * @PhpUnitGen\assertEquals("'0123456789'")
+     */
+    public function getCellphone(): string
+    {
+        return $this-&gt;phone;
+    }
+}
+</code></pre>
+
+<p>
+    Une annotation d'assertion se composent d'un paramètre optionel qui décrit
+    la valeur attendue de l'assertion PHPUnit.
+</p>
+
+<ul class="browser-default">
+    <li>Il peut être n'importe quelle expression PHP.</li>
+    <li>
+        Si il n'est pas fourni, PhpUnitGen considérera que l'assertion n'a pas besoin de paramètre,
+        comme <code>assertTrue</code> par exemple.
+    </li>
+</ul>
+
+<h4>Paramètres de méthode</h4>
+
+<p>
+    Si la méthode que vous voulez tester a besoin de paramètres, vous pouvez utiliser l'annotation <code>params</code>.
+</p>
+
+<pre><code class="php language-php">
+&lt;?php
+class Employee {
+    /**
+     * Appelle la méthode avec les paramètres, et effectue les assertions sur le résultat.
+     * @PhpUnitGen\params("'John'", "'0123456789'")
+     * @PhpUnitGen\assertNotNull()
+     * @PhpUnitGen\assertEquals("'John: 0123456789'")
+     */
+    public static function getEmployeeInfo(string $name, string $phone): string
+    {
+        return $name . ': ' . $phone;
+    }
+}
+</code></pre>
+
+<p>
+    Cette annotation fonctionne comme l'annotation <code>construct</code>, mais les paramètres ne
+    sont pas fournis dans un tableau JSON.
+</p>
+
+<h4>Création de Mock</h4>
+
+<p>
+    L'annotation <code>mock</code> vous permet de créer un mock, qui
+    pourra être défini en tant que propriété de la classe de test ou juste en variable de méthode.
+</p>
+
+<pre><code class="php language-php">
+&lt;?php
+namespace Company;
+/**
+ * Crée un mock de "\Company\Employee" et l'ajoute dans une propriété de classe "$employee".
+ * @PhpUnitGen\mock("\\Company\\Employee", "employee")
+ *
+ * Utilise le mock créé "$employee" à partir de $this dans le constructeur.
+ * @PhpUnitGen\construct(["$this-&gt;employee"])
+ */
+class EmployeeCard {
+    public function __construct(Employee $employee) { /* du code PHP */ }
+
+    /**
+     * Crée un mock uniquement dans le test de la méthode.
+     * @PhpUnitGen\mock("\\DateTime", "date")
+     *
+     * Utilise le mock dans les tests.
+     * @PhpUnitGen\params("$date")
+     * @PhpUnitGen\assertFalse()
+     */
+    public function isExpired(\DateTime $date): bool { /* du code PHP */ }
+}
+</code></pre>

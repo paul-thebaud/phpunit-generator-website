@@ -26,7 +26,7 @@
 </ul>
 
 <p>
-    Those annotations <strong>MUST</strong> be written in a PHPDoc block.
+    Those annotations <b>MUST</b> be written in a PHPDoc block.
     They all start with <code>@PhpUnitGen</code> or <code>@Pug</code>
     (which is not case sensitive, so you can write <code>@phpunitgen</code> for example).
 </p>
@@ -48,15 +48,20 @@ function validateSomething(): bool { /* some PHP code */ }
 
 <p>
     You can find basic examples on using annotations
-    <a href="https://github.com/paul-thebaud/phpunit-generator/examples/annotations"
+    <a href="https://github.com/paul-thebaud/phpunit-generator/tree/master/examples/annotations"
         target="_blank">here <sup><i class="material-icons tiny">open_in_new</i></sup></a>
     with input class and output tests class.
 </p>
 
-<p>
-    <strong>Note</strong>: PhpUnitGen annotations are <strong>made to generate simple tests</strong>.
-    If you want to test complex methods, you should write your assertions yourself.
-</p>
+<div class="card blue lighten-2">
+    <div class="card-content">
+        <h5><i class="material-icons left">info</i>Notice</h5>
+        <p>
+            PhpUnitGen annotations are <b>made to generate simple tests</b>.
+            If you want to test complex methods, you should write your unit tests yourself.
+        </p>
+    </div>
+</div>
 
 <h4>Automatic generation</h4>
 
@@ -85,10 +90,13 @@ function validateSomething(): bool { /* some PHP code */ }
 <p>
     Some annotations will need parameters. When generating tests skeletons, PhpUnitGen parse
     these annotations like JSON content, so all parameters must be quoted with <code>"</code>. In
-    this parameter, you can write any PHP code, such as a mock creation: <code>"$this-&gt;createMock('MyClass')"</code>
+    this parameter, you can write any PHP code, such as a mock creation: <code>"$this-&gt;createMock('MyClass')"</code>.
 </p>
 
-<p><strong>Do not forget</strong> to escape the backslash <code>\</code> or the <code>"</code> chars with a backslash <code>\</code>.</p>
+<p>
+    <b>Do not forget</b> to escape the backslash <code>\</code> or the <code>"</code>
+    chars with a backslash <code>\</code>.
+</p>
 
 <h4>Class instantiation information</h4>
 
@@ -184,16 +192,21 @@ class Employee {
 }
 </code></pre>
 
-<p>
-    <strong>Note</strong>: <code>get</code> and <code>set</code> annotations support
-    static and not static method in classes, traits or interfaces,
-    but do not support global functions (out of classes, traits or interfaces).
-    PhpUnitGen allow <code>get</code> and <code>set</code> methods to be private and protected.
-</p>
+<div class="card blue lighten-2">
+    <div class="card-content">
+        <h5><i class="material-icons left">info</i>Notice</h5>
+        <p>
+            <code>get</code> and <code>set</code> annotations support
+            static and not static method in classes, traits or interfaces,
+            but do not support global functions (out of classes, traits or interfaces).
+            PhpUnitGen allow <code>get</code> and <code>set</code> methods to be private and protected.
+        </p>
+    </div>
+</div>
 
 <h4>Method result assertions</h4>
 
-<p>PhpUnitGen also provide annotations to generate simple:</p>
+<p>PhpUnitGen also provide annotations to generate simple assertions:</p>
 
 <pre><code class="php language-php">
 &lt;?php
@@ -214,7 +227,7 @@ class Employee {
 
 <p>
     An assertion annotation is composed of an optional string to describe
-    the first parameter of assertion (generally it is the expected value):
+    the expected value of PHPUnit assertion:
 </p>
 
 <ul class="browser-default">
@@ -230,7 +243,7 @@ class Employee {
 &lt;?php
 class Employee {
     /**
-     * Assert that when calling this method the property $phone is set.
+     * Call the method with those parameters, and call assertions on the result.
      * @PhpUnitGen\params("'John'", "'0123456789'")
      * @PhpUnitGen\assertNotNull()
      * @PhpUnitGen\assertEquals("'John: 0123456789'")
@@ -250,7 +263,7 @@ class Employee {
 <h4>Mocking objects</h4>
 
 <p>
-    The mock annotation allows you to mock an object, which can
+    The <code>mock</code> annotation allows you to mock an object, which can
     be defined as a class property or a method test variable.
 </p>
 
@@ -258,7 +271,7 @@ class Employee {
 &lt;?php
 namespace Company;
 /**
- * Create a mock of '\Company\Employee' and add it to class properties as '$employee'.
+ * Create a mock of "\Company\Employee" and add it to class properties as "$employee".
  * @PhpUnitGen\mock("\\Company\\Employee", "employee")
  *
  * Use the class property "$employee" with $this in the constructor.

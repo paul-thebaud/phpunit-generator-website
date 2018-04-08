@@ -30,6 +30,9 @@ main
   font-family: 'Londrina Solid', sans-serif
   font-size: 130%
 
+.fixed-action-btn
+  bottom: 40px
+
 // App page loader
 #app-loader
   position: fixed
@@ -105,7 +108,7 @@ nav
 .hasSidebar
   nav, main, footer
     padding-left: 300px
-  @media only screen and (max-width : 992px)
+  @media only screen and (max-width: 992px)
     nav, main, footer
       padding-left: 0
 
@@ -128,7 +131,7 @@ i.char-as-icon
   line-height: 48px
   margin: 0 32px 0 0
   max-width: 24px
-  color: rgba(0,0,0,.54)
+  color: rgba(0, 0, 0, .54)
 
 .card.blue, .card.orange
   .card-content
@@ -146,10 +149,23 @@ i.char-as-icon
 pre
   code
     background-color: inherit
+
 code
-  background-color: rgba(0,0,0,.15)
+  background-color: rgba(0, 0, 0, .15)
   padding: 2px
   border-radius: 3px
+
+#share-buttons
+  img
+    width: 55px
+    margin: 5px
+    padding: 5px
+    border: 0
+    -webkit-transition: -webkit-transform .5s ease-in-out
+    transition: transform .5s ease-in-out
+    &:hover
+      -webkit-transform: rotate(360deg)
+      transform: rotate(360deg)
 
 // Forms
 input[type="file"]
@@ -222,9 +238,11 @@ input[type="file"]
 .white
   .CodeMirror
     border: 1px solid color('grey', 'base')
+
 .grey
   .CodeMirror
     border: 1px solid color('grey', 'base')
+
 .CodeMirror
   border-radius: 4px
   background-color: color('grey', 'darken-4') !important

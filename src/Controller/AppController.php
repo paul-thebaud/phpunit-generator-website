@@ -63,7 +63,7 @@ class AppController
      * AppController constructor.
      *
      * @param PhpRenderer $renderer The PhpRenderer to render HTML view.
-     * @param Language $language The Language to use multi languages documentation.
+     * @param Language    $language The Language to use multi languages documentation.
      */
     public function __construct(PhpRenderer $renderer, Language $language)
     {

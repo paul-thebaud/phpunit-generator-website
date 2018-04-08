@@ -42,7 +42,7 @@ $ php ./vendor/bin/phpunitgen
 </p>
 
 <p>
-    Mais si vous souhaitez utiliser une <strong>configuration personnalisé</strong>, vous pouvez utiliser une option :
+    Mais si vous souhaitez utiliser une <b>configuration personnalisé</b>, vous pouvez utiliser une option :
 </p>
 
 <pre><code class="bash language-bash">
@@ -52,7 +52,7 @@ $ php ./vendor/bin/phpunitgen -c=my/custom/config.yml
 </code></pre>
 
 <p>
-    Pour utiliser PhpUnitGen sur <strong>un seul fichier</strong>
+    Pour utiliser PhpUnitGen sur <b>un seul fichier</b>
     (l'utilisation de l'option <code>file</code> aura besoin d'une source et d'une cible étant des fichiers) :
 </p>
 
@@ -63,7 +63,7 @@ $ php ./vendor/bin/phpunitgen -f source/file.php target/file.php
 </code></pre>
 
 <p>
-    Pour utiliser PhpUnitGen sur <strong>un seul dossier</strong>
+    Pour utiliser PhpUnitGen sur <b>un seul dossier</b>
     (l'utilisation de l'option <code>dir</code> aura besoin d'une source et d'une cible étant des dossiers) :
 </p>
 
@@ -75,7 +75,7 @@ $ php ./vendor/bin/phpunitgen -d source/dir target/dir
 
 <p>
     Pour utiliser PhpUnitGen avec <a href="https://github.com/paul-thebaud/phpunit-generator/blob/master/config/default.phpunitgen.config.php"
-                                     target="_blank"><strong>la configuration par défaut <sup><i class="material-icons tiny">open_in_new</i></sup></strong></a>
+                                     target="_blank"><b>la configuration par défaut <sup><i class="material-icons tiny">open_in_new</i></sup></b></a>
     (l'utilisation de l'option <code>default</code> aura besoin d'une source et d'une cible):
 </p>
 
@@ -115,57 +115,57 @@ $ php ./vendor/bin/phpunitgen -D -d source/dir target/dir
 
 <ul class="browser-default">
     <li>
-        <strong>overwrite</strong> [<em>boolean</em>]: Utilisez la valeur <em>true</em> si vous
+        <b>overwrite</b> [<i>boolean</i>]: Utilisez la valeur <i>true</i> si vous
         voulez que les fichiers qui existent déjà soit supprimés.
     </li>
     <li>
-        <strong>backup</strong> [<em>boolean</em>]: Utilisez la valeur <em>true</em> si vous
+        <b>backup</b> [<i>boolean</i>]: Utilisez la valeur <i>true</i> si vous
         voulez qu'une backup soit créée avant de supprimer les fichiers quand
-        l'option <code>overwrite</code> est égale à <em>true</em>.
+        l'option <code>overwrite</code> est égale à <i>true</i>.
         Les fichiers de backup auront le nom suivant : <code>your_file.php.bak</code>
     </li>
     <li>
-        <strong>interface</strong> [<em>boolean</em>]: Utilisez la valeur <em>true</em> si vous
+        <b>interface</b> [<i>boolean</i>]: Utilisez la valeur <i>true</i> si vous
         voulez générer des squelettes de tests pour les interfaces PHP.
     </li>
     <li>
-        <strong>private</strong> [<em>boolean</em>]: Utilisez la valeur <em>true</em> si vous
+        <b>private</b> [<i>boolean</i>]: Utilisez la valeur <i>true</i> si vous
         voulez générer des squelettes de tests pour les méthodes privées ou protégées.
     </li>
     <li>
-        <strong>auto</strong> [<em>boolean</em>]: Utilisez la valeur <em>true</em> si vous
+        <b>auto</b> [<i>boolean</i>]: Utilisez la valeur <i>true</i> si vous
         voulez générer automatiquement les tests unitaires des méthodes <code>getter</code> /
         <code>setter</code>, ou les instanciations des classes et des traits.
     </li>
     <li>
-        <strong>ignore</strong> [<em>boolean</em>]: Utilisez la valeur <em>true</em> si vous
+        <b>ignore</b> [<i>boolean</i>]: Utilisez la valeur <i>true</i> si vous
         voulez utilisez les erreurs peu importantes (fichier impossible à analyser dans un dossier ...).
     </li>
     <li>
-        <strong>exclude</strong> [<em>string</em> ou <em>null</em>]: Un expression régulière PHP pour
-        les fichiers qui ne devraient pas être analysés. Utilisez <em>null</em> en valeur si vous ne
+        <b>exclude</b> [<i>string</i> ou <i>null</i>]: Un expression régulière PHP pour
+        les fichiers qui ne devraient pas être analysés. Utilisez <i>null</i> en valeur si vous ne
         souhaitez pas filtrer les fichiers avec ce mode.
         <br>
         C'est une condition que les fichiers ne doivent pas remplir pour être analysés.
     </li>
     <li>
-        <strong>include</strong> [<em>string</em> ou <em>null</em>]: Un expression régulière PHP pour
-        les fichiers qui doivent être analysés. Utilisez <em>null</em> en valeur si vous ne
+        <b>include</b> [<i>string</i> ou <i>null</i>]: Un expression régulière PHP pour
+        les fichiers qui doivent être analysés. Utilisez <i>null</i> en valeur si vous ne
         souhaitez pas filtrer les fichiers avec ce mode.
         <br>
         C'est une condition que les fichiers doivent remplir pour être analysés.
     </li>
     <li>
-        <strong>dirs</strong> [<em>array</em>]: Un tableau de dossiers <code>source: cible</code>.
+        <b>dirs</b> [<i>array</i>]: Un tableau de dossiers <code>source: cible</code>.
         PhpUnitGen analysera chaque fichier du dossier source (et les sous-dossier),
         puis générera les fichiers de tests dans le dossier cible.
-        La valeur <em>null</em> permet de ne pas analyser de dossier.
+        La valeur <i>null</i> permet de ne pas analyser de dossier.
     </li>
     <li>
-        <strong>files</strong> [<em>array</em>]: Un tableau de fichiers <code>source: cible</code>.
+        <b>files</b> [<i>array</i>]: Un tableau de fichiers <code>source: cible</code>.
         PhpUnitGen analysera chaque fichier source,
         puis générera les fichiers de tests cibles.
-        La valeur <em>null</em> permet de ne pas analyser de fichier.
+        La valeur <i>null</i> permet de ne pas analyser de fichier.
     </li>
 </ul>
 
