@@ -45,6 +45,7 @@
  */
 function validateSomething(): bool { /* some PHP code */ }
 </code></pre>
+<br>
 
 <p>
     You can find basic examples on using annotations
@@ -117,6 +118,7 @@ class Employee extends AbstractPerson
     public function __construct(string $name, string $cellphone) { /* some PHP code */ }
 }
 </code></pre>
+<br>
 
 <p>
     If you want to build the class instance to test from another class
@@ -133,6 +135,7 @@ namespace Company;
  */
 abstract class AbstractPerson { /* some PHP code */ }
 </code></pre>
+<br>
 
 <h4>Getter and setter</h4>
 
@@ -163,6 +166,7 @@ class Employee {
     }
 }
 </code></pre>
+<br>
 
 <p>
     If you want to tell to PhpUnitGen which property is set or get by the method,
@@ -191,6 +195,7 @@ class Employee {
     }
 }
 </code></pre>
+<br>
 
 <div class="card blue lighten-2">
     <div class="card-content">
@@ -224,6 +229,7 @@ class Employee {
     }
 }
 </code></pre>
+<br>
 
 <p>
     An assertion annotation is composed of an optional string to describe
@@ -254,6 +260,7 @@ class Employee {
     }
 }
 </code></pre>
+<br>
 
 <p>
     It works like the <code>construct</code> annotation, but parameters are not in a JSON array and, obviously, you
@@ -291,3 +298,4 @@ class EmployeeCard {
     public function isExpired(\DateTime $date): bool { /* some PHP code */ }
 }
 </code></pre>
+<br>

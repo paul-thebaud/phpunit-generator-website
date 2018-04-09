@@ -46,6 +46,7 @@
  */
 function validateSomething(): bool { /* du code PHP */ }
 </code></pre>
+<br>
 
 <p>
     Vous pouvez trouver quelques exemples basiques d'utilisation des annotations
@@ -123,6 +124,7 @@ class Employee extends AbstractPerson
     public function __construct(string $name, string $cellphone) { /* du code PHP */ }
 }
 </code></pre>
+<br>
 
 <p>
     Si vous voulez instancier une autre classe que celle d'origine
@@ -139,6 +141,7 @@ namespace Company;
  */
 abstract class AbstractPerson { /* du code PHP */ }
 </code></pre>
+<br>
 
 <h4>Getter et setter</h4>
 
@@ -169,6 +172,7 @@ class Employee {
     }
 }
 </code></pre>
+<br>
 
 <p>
     Si voulez indiquer à PhpUnitGen que la méthode n'est pas nommée à partir de la
@@ -197,6 +201,7 @@ class Employee {
     }
 }
 </code></pre>
+<br>
 
 <div class="card blue lighten-2">
     <div class="card-content">
@@ -230,6 +235,7 @@ class Employee {
     }
 }
 </code></pre>
+<br>
 
 <p>
     Une annotation d'assertion se composent d'un paramètre optionel qui décrit
@@ -265,6 +271,7 @@ class Employee {
     }
 }
 </code></pre>
+<br>
 
 <p>
     Cette annotation fonctionne comme l'annotation <code>construct</code>, mais les paramètres ne
@@ -302,3 +309,4 @@ class EmployeeCard {
     public function isExpired(\DateTime $date): bool { /* du code PHP */ }
 }
 </code></pre>
+<br>
