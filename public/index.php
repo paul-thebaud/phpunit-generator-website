@@ -15,9 +15,9 @@ require __DIR__ . '/../vendor/autoload.php';
 session_start();
 
 // Build settings, and merge dev settings if exists
-$settings = require __DIR__ . '/../src/settings.php';
-if (file_exists(__DIR__ . '/../src/local.php')) {
-    $localSettings = require __DIR__ . '/../src/local.php';
+$settings = require __DIR__ . '/../src/config/settings.php';
+if (file_exists(__DIR__ . '/../src/config/local.php')) {
+    $localSettings = require __DIR__ . '/../src/config/local.php';
     $settings = array_merge($settings, $localSettings);
 }
 $settings = ['settings' => $settings];
@@ -32,13 +32,13 @@ if ($settings['settings']['displayErrorDetails'] === true) {
 $app = new \Slim\App($settings);
 
 // Set up dependencies
-require __DIR__ . '/../src/dependencies.php';
+require __DIR__ . '/../src/config/dependencies.php';
 
 // Register middleware
-require __DIR__ . '/../src/middleware.php';
+require __DIR__ . '/../src/config/middleware.php';
 
 // Register routes
-require __DIR__ . '/../src/routes.php';
+require __DIR__ . '/../src/config/routes.php';
 
 // Run app
 $app->run();
