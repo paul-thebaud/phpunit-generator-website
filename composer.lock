@@ -387,16 +387,16 @@
         },
         {
             "name": "paulthebaud/phpunit-generator",
-            "version": "2.0.2",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paul-thebaud/phpunit-generator.git",
-                "reference": "42d341d1cc7e4096567995d9ab3458c32acb3f06"
+                "reference": "6acafc1ba517924d0883c6333513e9569b5b31e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paul-thebaud/phpunit-generator/zipball/42d341d1cc7e4096567995d9ab3458c32acb3f06",
-                "reference": "42d341d1cc7e4096567995d9ab3458c32acb3f06",
+                "url": "https://api.github.com/repos/paul-thebaud/phpunit-generator/zipball/6acafc1ba517924d0883c6333513e9569b5b31e2",
+                "reference": "6acafc1ba517924d0883c6333513e9569b5b31e2",
                 "shasum": ""
             },
             "require": {
@@ -447,7 +447,7 @@
                 "tests",
                 "unit"
             ],
-            "time": "2018-03-10T23:31:27+00:00"
+            "time": "2018-04-12T11:20:19+00:00"
         },
         {
             "name": "pimple/pimple",
@@ -1929,16 +1929,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "7.1.1",
+            "version": "7.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "f7fe5127889519e421600fe0feeb113a5e210f20"
+                "reference": "6a17c170fb92845896e1b3b00fcb462cd4b3c017"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/f7fe5127889519e421600fe0feeb113a5e210f20",
-                "reference": "f7fe5127889519e421600fe0feeb113a5e210f20",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6a17c170fb92845896e1b3b00fcb462cd4b3c017",
+                "reference": "6a17c170fb92845896e1b3b00fcb462cd4b3c017",
                 "shasum": ""
             },
             "require": {
@@ -2005,20 +2005,20 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-04-06T12:39:30+00:00"
+            "time": "2018-04-10T11:40:22+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
-            "version": "6.1.0",
+            "version": "6.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
-                "reference": "3f5ca97eee66a07951d018f6726017629c85c86d"
+                "reference": "70c740bde8fd9ea9ea295be1cd875dd7b267e157"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/3f5ca97eee66a07951d018f6726017629c85c86d",
-                "reference": "3f5ca97eee66a07951d018f6726017629c85c86d",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/70c740bde8fd9ea9ea295be1cd875dd7b267e157",
+                "reference": "70c740bde8fd9ea9ea295be1cd875dd7b267e157",
                 "shasum": ""
             },
             "require": {
@@ -2061,7 +2061,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2018-04-06T08:14:40+00:00"
+            "time": "2018-04-11T04:50:36+00:00"
         },
         {
             "name": "psr/log",

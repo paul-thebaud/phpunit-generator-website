@@ -17,8 +17,11 @@ ServerAlias api.phpunitgen.local doc.phpunitgen.local
 
 ## Running tests
 
+No unit tests are available for the moment,
+there is only the PSR-2 validation on PHP files.
+
 ```bash
-$ composer test
+$ composer cs-check
 ```
 
 ## Contributing

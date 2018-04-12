@@ -35,19 +35,8 @@
       "PhpUnitGen\\Website\\": "src/"
     }
   },
-  "autoload-dev": {
-    "psr-4": {
-      "FunctionalTests\\PhpUnitGen\\": "tests/functional/",
-      "UnitTests\\PhpUnitGen\\": "tests/unit/"
-    }
-  },
   "scripts": {
     "cs-check": "php ./vendor/bin/phpcs",
-    "cs-fix": "php ./vendor/bin/phpcbf",
-    "phpunit": "php ./vendor/bin/phpunit",
-    "test": [
-      "@cs-check",
-      "@phpunit"
-    ]
+    "cs-fix": "php ./vendor/bin/phpcbf"
   }
 }
