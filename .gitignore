@@ -4,4 +4,4 @@
 
 /build/
 
-src/local\.php
+src/config/local\.php
