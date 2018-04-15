@@ -3,6 +3,7 @@
 
 use PhpUnitGen\Website\Controller\AppController;
 use PhpUnitGen\Website\Language\Language;
+use PhpUnitGen\Website\Middleware\CookieDestructorMiddleware;
 use PhpUnitGen\Website\Middleware\CrossOriginMiddleware;
 use PhpUnitGen\Website\Middleware\ResourceMiddleware;
 use Psr\Container\ContainerInterface;
@@ -29,11 +30,14 @@ $container[Language::class] = function (): Language {
 };
 
 // Middleware
-$container[CrossOriginMiddleware::class] = function (ContainerInterface $container): CrossOriginMiddleware {
+$container[CrossOriginMiddleware::class]      = function (ContainerInterface $container): CrossOriginMiddleware {
     return new CrossOriginMiddleware($container->get('settings'));
 };
-$container[ResourceMiddleware::class]    = function (ContainerInterface $container): ResourceMiddleware {
+$container[ResourceMiddleware::class]         = function (ContainerInterface $container): ResourceMiddleware {
     return new ResourceMiddleware($container->get('settings'));
+};
+$container[CookieDestructorMiddleware::class] = function (): CookieDestructorMiddleware {
+    return new CookieDestructorMiddleware();
 };
 
 // Controllers

@@ -12,8 +12,6 @@ if (PHP_SAPI == 'cli-server') {
 
 require __DIR__ . '/../vendor/autoload.php';
 
-session_start();
-
 // Build settings, and merge dev settings if exists
 $settings = require __DIR__ . '/../src/config/settings.php';
 if (file_exists(__DIR__ . '/../src/config/local.php')) {
