@@ -29,6 +29,13 @@ PhpUnitGen.Request = (function() {
       dataType: 'json',
       success: function(json) {
         if (json.code === 200) {
+          if (json.content === null) {
+            PhpUnitGen.Toast.error('No tests generated');
+            PhpUnitGen.Spinner.toggle();
+
+            return;
+          }
+
           PhpUnitGen.PageLoader.setTests(json.content);
           PhpUnitGen.Tab.slideTestsEditor(source);
 
