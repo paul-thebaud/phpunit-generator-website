@@ -5,6 +5,7 @@ const PHPUNITGEN_THEMES = {
     'classes': 'white blue-grey-text text-darken-3',
     'identifiers': [
       'main',
+      '.phpunitgen',
       '.modal',
       '.modal-footer',
       '.select-wrapper span.caret'
@@ -14,6 +15,7 @@ const PHPUNITGEN_THEMES = {
     'classes': 'grey darken-4 white-text',
     'identifiers': [
       'main',
+      '.phpunitgen',
       '.modal',
       '.modal-footer',
       '.select-wrapper span.caret'
@@ -24,6 +26,7 @@ const PHPUNITGEN_THEMES = {
     'identifiers': [
       '#global',
       'main',
+      '.phpunitgen',
       '.modal',
       '.modal-footer',
       '.select-wrapper span.caret'
@@ -34,6 +37,7 @@ const PHPUNITGEN_THEMES = {
     'identifiers': [
       '#global',
       'main',
+      '.phpunitgen',
       '.modal',
       '.modal-footer',
       '.select-wrapper span.caret'
